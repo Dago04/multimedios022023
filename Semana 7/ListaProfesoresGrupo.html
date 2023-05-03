@@ -17,42 +17,41 @@
  <div class="container-fluid">
 
     <header>
-      <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="Inicio.html">menu</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Opciones API
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="ListaCurso.html">Cursos</a></li>
-                    <li><a class="dropdown-item" href="ListaEstudiantesGrupo.html">Estudiante por grupo</a></li>
-                    <li><a class="dropdown-item" href="ListaGrupo.html">Grupo</a></li>
-                    <li><a class="dropdown-item" href="ListaUsuarios.html">Usuarios</a></li>
-                    <li><a class="dropdown-item" href="ListaEstudiante.html">Estudiantes</a></li>
-                    <li><a class="dropdown-item" href="ListaProfesoresGrupo.html">Profesores por grupo</a></li>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="Inicio.html">menu</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Opciones API
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="ListaCurso.html">Cursos</a></li>
+                        <li><a class="dropdown-item" href="ListaEstudiantesGrupo.html">Estudiante por grupo</a></li>
+                        <li><a class="dropdown-item" href="ListaGrupo.html">Grupo</a></li>
+                        <li><a class="dropdown-item" href="ListaProfesores.html">Profesores</a></li>
+                        <li><a class="dropdown-item" href="ListaUsuarios.html">Usuarios</a></li>
+                        <li><a class="dropdown-item" href="ListaEstudiante.html">Estudiantes</a></li>
+                      </ul>
+                    </li>
+                   
                   </ul>
-                </li>
-               
-              </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
     </header>
     
     <main>
-       
         <div class="table-responsive">
             <table class="table table-striped
             table-hover	
@@ -76,6 +75,8 @@
                         <th>IdCarreras</th>
                         <th>Usuario</th>
                         <th>Nacionalidad</th>
+                        <th>NombreCarrera</th>
+                        <th>Idcarreras</th>
                         
                     </tr>
                     </thead>
@@ -113,7 +114,7 @@
 
     // {"id":"377","nombre":"hola leo","descripcion":"sdsd","tiempo":"asasa"}
     function cargarDatos(){
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php") //url de peticion  de datos
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesoresGrupo.php") //url de peticion  de datos
         .then(respuesta => respuesta.json())//recibe los datos en formato json
         .then((datosrespuesta) =>{
             setTabla(datosrespuesta.data)//lo envio para la funcion para darle tratamiento
@@ -149,6 +150,8 @@
                             <td>${valor.idCarreras}</td>
                             <td>${valor.usuario}</td>
                             <td>${valor.nacionalidad}</td>
+                            <td>${valor.nombreCarreras}</td>
+                            <td>${valor.idcarreras}</td>
                         </tr>`
 
 
