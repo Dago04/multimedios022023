@@ -72,11 +72,17 @@
 
     function captura(){
 
-        
+         var formulario = document.getElementById('formulario');
         var nombre = document.getElementById("nombre").value;
         var descripcion= document.getElementById("descripcion").value;
         var tiempo = document.getElementById("tiempo").value;
         var usuario= document.getElementById("usuario").value;
+        var datosenviar= {
+            "nombre": nombre,
+            "descripcion":descripcion,
+            "tiempo":tiempo,
+            "usuario":usuario
+        }
         if(nombre==""){
             alert("El nombre es obligatorio digitarlo");
             document.getElementById("nombre").focus();
@@ -93,21 +99,22 @@
 
                         alert("El usuario es obligatorio digitarlo");
                   document.getElementById("usuario").focus();
-                    }
+                    }else{
+                    console.log(nombre +" "+ descripcion+" "+ tiempo +" "+ usuario);
+                    document.getElementById("nombre").value="";
+                    document.getElementById("descripcion").value="";
+                    document.getElementById("tiempo").value="";
+                    document.getElementById("usuario").value="";
+                }
                 }
             }
         }
-      
+        formulario.addEventListener('submit', function(e){
+        alert(nombre +" " + descripcion +" "+ tiempo +" " +usuario);
+        e.preventDefault();
+        })
 
-        var datosenviar= {
-            "nombre": nombre,
-            "descripcion":descripcion,
-            "tiempo":tiempo,
-            "usuario":usuario
-        }
-       
-
-        console.log(nombre +" "+ descripcion+" "+ tiempo +" "+ usuario);
+        
         //apis/InsertarCursos.php
         //{ "nombre":"React 22", "descripcion":"React Junior", "tiempo":"10 Meses", "usuario":"profesor Mario" }
 
@@ -126,6 +133,8 @@
         })
        
         .catch(console.log)//muestra 
+
+        
 
     }
 
