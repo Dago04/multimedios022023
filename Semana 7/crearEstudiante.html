@@ -22,7 +22,7 @@
             <form id="formulario">
 
 
-                <div class="mb-3 col-lg">
+                <div class="mb-3 ">
                     <label for="" class="form-label">Cedula</label>
                     <input class="form-control form-control-sm" type="text" class="form-control" name="cedula"
                         id="cedula" aria-describedby="helpId" placeholder="">
@@ -136,57 +136,159 @@
         </script>
 
     <script>
-        var formulario = document.getElementById("formulario");
-        var cedula = document.getElementById("cedula").value;
-        var correoelectronico = document.getElementById("corrreoelectronico").value;
-        var telefono = document.getElementById("telefono").value;
-        var telefonocelular = document.getElementById("telefonocelular").value;
-        var fechanacimiento = document.getElementById("fechanacimiento").value;
-        var sexo = document.getElementById("sexo").value;
-        var direccion = document.getElementById("direccion").value;
-        var apellidopaterno = document.getElementById("apellidopaterno").value;
-        var apellidomaterno = document.getElementById("apellidomaterno").value;
-        var nacionalidad = document.getElementById("nacionalidad").value;
-        var idCarreras = document.getElementById("idCarreras").value;
-        var usuario = document.getElementById("usuario").value;
 
-        var datosenviar = {
-            "cedula": cedula,
-            "correoelectronico": correoelectronico,
-            "telefono": telefono,
-            "telefonocelular": telefonocelular,
-            "fechanacimiento": fechanacimiento,
-            "sexo": sexo,
-            "direccion": direccion,
-            "apellidopaterno": apellidopaterno,
-            "apellidomaterno": apellidomaterno,
-            "nacionalidad": nacionalidad,
-            "idCarreras": idCarreras,
-            "usuario": usuario,
-
-        }
 
         function captura() {
-            formulario.addEventListener('submit', function (e) {
-                alert(cedula + "");
-                e.preventDefault();
-            })
+            var formulario = document.getElementById("formulario");
+            var cedula = document.getElementById("cedula").value;
+            var correoelectronico = document.getElementById("correoelectronico").value;
+            var telefono = document.getElementById("telefono").value;
+            var telefonocelular = document.getElementById("telefonocelular").value;
+            var fechanacimiento = document.getElementById("fechanacimiento").value;
+            var sexo = document.getElementById("sexo").value;
+            var direccion = document.getElementById("direccion").value;
+            var nombre = document.getElementById("nombre").value;
+            var apellidopaterno = document.getElementById("apellidopaterno").value;
+            var apellidomaterno = document.getElementById("apellidomaterno").value;
+            var nacionalidad = document.getElementById("nacionalidad").value;
+            var idCarreras = document.getElementById("idCarreras").value;
+            var usuario = document.getElementById("usuario").value;
 
-            fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php",
-                {
-                    method: 'POST',
-                    body: JSON.stringify(datosenviar)
-                }
-            )
-                //url de peticion  de datos
-                .then(respuesta => respuesta.json())//recibe los datos en formato json
-                .then((datosrespuesta) => {
+            var datosenviar = {
+                "cedula": cedula,
+                "correoelectronico": correoelectronico,
+                "telefono": telefono,
+                "telefonocelular": telefonocelular,
+                "fechanacimiento": fechanacimiento,
+                "sexo": sexo,
+                "direccion": direccion,
+                "nombre": nombre,
+                "apellidopaterno": apellidopaterno,
+                "apellidomaterno": apellidomaterno,
+                "nacionalidad": nacionalidad,
+                "idCarreras": idCarreras,
+                "usuario": usuario
 
-                    console.log('Datos', datosrespuesta)//muesta el resultado de la petición
+            }
+            if (cedula == "") {
+                alert("la cedula es obligatoria digitarlo");
+                document.getElementById("cedula").focus();
+            }
+            if (correoelectronico == "") {
+                alert("El correo electronico es obligatorio");
+                document.getElementById("correoelectronico").focus();
+
+            }
+            if (telefono == "") {
+                alert("El telefono es obligatorio");
+                document.getElementById("telefono").focus();
+
+            }
+            if (telefonocelular == "") {
+                alert("El telefono celular es obligatorio");
+                document.getElementById("telefonocelular").focus();
+
+            }
+            if (fechanacimiento == "") {
+                alert("La fecha de nacimiento es obligatorio");
+                document.getElementById("fechanacimiento").focus();
+
+            }
+            if (sexo == "") {
+                alert("El sexo es obligatorio");
+                document.getElementById("sexo").focus();
+
+            }
+            if (direccion == "") {
+                alert("la direccion es obligatorio");
+                document.getElementById("direccion").focus();
+
+            }
+            if (nombre == "") {
+                alert("El nombre es obligatorio");
+                document.getElementById("nombre").focus();
+
+            }
+            if (apellidopaterno == "") {
+                alert("El apellido paterno es obligatorio");
+                document.getElementById("apellidopaterno").focus();
+
+            }
+
+            if (apellidomaterno == "") {
+                alert("El apellido materno es obligatorio");
+                document.getElementById("apellidomaterno").focus();
+
+            }
+
+            if (nacionalidad == "") {
+                alert("la nacionalidad es obligatorio");
+                document.getElementById("nacionalidad").focus();
+
+            }
+
+
+            if (idCarreras == "") {
+                alert("El id de la carrera es obligatorio");
+                document.getElementById("idCarreras").focus();
+            }
+
+            if (usuario == "") {
+                alert("el usuario es obligatorio");
+                document.getElementById("usuario").focus();
+            }
+
+            if (cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != "" && sexo != "" && direccion != "" &&
+                nombre != "" && apellidopaterno != "" && apellidomaterno != "" && nacionalidad != "" && idCarreras != "" && usuario != "") {
+
+                var cedula = document.getElementById("cedula").value;
+                var correoelectronico = document.getElementById("correoelectronico").value;
+                var telefono = document.getElementById("telefono").value= "";
+                var telefonocelular = document.getElementById("telefonocelular").value= "";
+                var fechanacimiento = document.getElementById("fechanacimiento").value= "";
+                var sexo = document.getElementById("sexo").value= "";
+                var direccion = document.getElementById("direccion").value= "";
+                var nombre = document.getElementById("nombre").value= "";
+                var apellidopaterno = document.getElementById("apellidopaterno").value= "";
+                var apellidomaterno = document.getElementById("apellidomaterno").value= "";
+                var nacionalidad = document.getElementById("nacionalidad").value= "";
+                var idCarreras = document.getElementById("idCarreras").value= "";
+                var usuario = document.getElementById("usuario").value= "";
+
+                formulario.addEventListener('submit', function (e) {
+                    e.preventDefault();
                 })
 
-                .catch(console.log)//muestra 
-        }
+                fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php",
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(datosenviar)
+                    }
+                )
+                    //url de peticion  de datos
+                    .then(respuesta => respuesta.json())//recibe los datos en formato json
+                    .then((datosrespuesta) => {
+
+                        console.log('Datos', datosrespuesta)//muesta el resultado de la petición
+                    })
+
+                    .catch(console.log)//muestra 
+
+
+
+            } else {
+                alert("no se pudo registrar el estudiante");
+            }
+
+
+
+
+        }//cierre funcion
+
+
+
+
+
     </script>
 </body>
 

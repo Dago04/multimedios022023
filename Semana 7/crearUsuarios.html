@@ -79,25 +79,19 @@
             if (name == "") {
                 alert("El nombre es obligatorio digitarlo");
                 document.getElementById("name").focus();
-                document.getElementById("name").value = "";
-                document.getElementById("password").value = "";
-                document.getElementById("email").value = "";
+              
             }
 
             if (password == "") {
                 alert("La contraseña es obligatorio digitarlo");
                 document.getElementById("password").focus();
-                document.getElementById("name").value = "";
-                document.getElementById("password").value = "";
-                document.getElementById("email").value = "";
+               
             }
 
             if (email == "") {
                 alert("El correo electronico es obligatorio digitarlo");
                 document.getElementById("email").focus();
-                document.getElementById("name").value = "";
-                document.getElementById("password").value = "";
-                document.getElementById("email").value = "";
+               
             }
 
             if (name!= "" && password!= "" && email != "") {
@@ -106,7 +100,6 @@
                 document.getElementById("email").value = "";
 
                 formulario.addEventListener('submit', function (e) {
-                    alert(name + " "+ password +" "+ email+ " ");
                     e.preventDefault();
                 })
 
@@ -124,6 +117,8 @@
                     })
 
                     .catch(console.log)//muestra 
+            }else{
+                alert("El usuario no se pudo agregar");
             }//cierre if
 
         }//cierre funcion

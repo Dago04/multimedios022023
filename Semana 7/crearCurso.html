@@ -114,7 +114,7 @@
 
 
         formulario.addEventListener('submit', function (e) {
-          alert(nombre + " " + descripcion + " " + tiempo + " " + usuario);
+         
           e.preventDefault();
         })
 
@@ -133,6 +133,8 @@
 
           .catch(console.log)//muestra 
 
+      }else{
+        alert("No se pudo agregar el curso");
       }////cierre
 
 
