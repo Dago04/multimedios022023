@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+
+        </header>
+        <main>
+            <form id="formulario">
+                <div class="mb-3">
+                    <label for="" class="form-label">Grupo</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+                        placeholder="">
+                    <small id="helpId" class="form-text text-muted">Grupo acá</small>
+                </div>
+
+                <div class="mb-3">
+                    <button type="reset" class="btn btn-danger"> Limpiar</button>
+                    <button type="submit" onclick="" class="btn btn-primary"> Guardar</button>
+                </div>
+
+            </form>
+
+
+        </main>
+        <footer>
+
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script>
+
+
+        const formulario = document.getElementById('formulario');
+        const inputs = document.querySelectorAll('#formulario input');
+      
+        const expresiones = {
+	    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        }
+
+        const validarFormulario = (e)=>{
+           switch( e.target.nombre){
+            case "nombre":
+                console.log('funciona');
+            break;
+           }
+        }
+        inputs.forEach((input)=> {
+            input.addEventListener('keyup', validarFormulario);
+            input.addEventListener('blur', validarFormulario);
+        });
+
+        formulario.addEventListener('submit',(e) =>{
+            e.preventDefault();
+
+        });
+        
+    </script>
+</body>
+
+</html>

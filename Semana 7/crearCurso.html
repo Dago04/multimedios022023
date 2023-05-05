@@ -14,132 +14,136 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <header>
-            <!-- place navbar here -->
-          </header>
-          <main>
-                <form id="formulario"> 
-                    <div class="mb-3">
-                      <label for="" class="form-label">Nombre</label>
-                      <input type="text"
-                        class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingresa el nombre del curso">
-                      <small id="helpId" class="form-text text-muted">Nomber aca</small>
-                    </div>
+  <div class="container-fluid">
+    <header>
+      <!-- place navbar here -->
+    </header>
+    <main>
+      <form id="formulario">
+        <div class="mb-3">
+          <label for="" class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+            placeholder="Ingresa el nombre del curso">
+          <small id="helpId" class="form-text text-muted">Nomber aca</small>
+        </div>
 
-                    <div class="mb-3">
-                        <label for="" class="form-label">Descripcion</label>
-                        <input type="text"
-                          class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Ingresa ela descripcion del curso">
-                        <small id="helpId" class="form-text text-muted">Descripcion aca</small>
-                      </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
+            placeholder="Ingresa ela descripcion del curso">
+          <small id="helpId" class="form-text text-muted">Descripcion aca</small>
+        </div>
 
-                      <div class="mb-3">
-                        <label for="" class="form-label">Tiempo</label>
-                        <input type="text"
-                          class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId" placeholder="Ingresa el tiempo del curso">
-                        <small id="helpId" class="form-text text-muted">Tiempo aca</small>
-                      </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Tiempo</label>
+          <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
+            placeholder="Ingresa el tiempo del curso">
+          <small id="helpId" class="form-text text-muted">Tiempo aca</small>
+        </div>
 
-                      <div class="mb-3">
-                        <label for="" class="form-label">Usuario</label>
-                        <input type="text"
-                          class="form-control" name="usuario" id="usuario" aria-describedby="helpId" placeholder="Ingresa el tiempo del curso">
-                        <small id="helpId" class="form-text text-muted">Usuario aca</small>
-                      </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Usuario</label>
+          <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
+            placeholder="Ingresa el tiempo del curso">
+          <small id="helpId" class="form-text text-muted">Usuario aca</small>
+        </div>
 
-                        <div class="mb-3">
-                            <button type="reset" class="btn btn-danger"> Limpiar</button>
-                            <button type="submit" onclick="captura()"class="btn btn-primary"> Guardar</button>
-                        </div>
-                </form>
-          </main>
-          <footer>
-            <!-- place footer here -->
-          </footer>
-    </div>
- 
+        <div class="mb-3">
+          <button type="reset" class="btn btn-danger"> Limpiar</button>
+          <button type="submit" onclick="captura()" class="btn btn-primary"> Guardar</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+  </div>
+
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script>
 
-    function captura(){
+    function captura() {
 
-         var formulario = document.getElementById('formulario');
-        var nombre = document.getElementById("nombre").value;
-        var descripcion= document.getElementById("descripcion").value;
-        var tiempo = document.getElementById("tiempo").value;
-        var usuario= document.getElementById("usuario").value;
-        var datosenviar= {
-            "nombre": nombre,
-            "descripcion":descripcion,
-            "tiempo":tiempo,
-            "usuario":usuario
-        }
-        if(nombre==""){
-            alert("El nombre es obligatorio digitarlo");
-            document.getElementById("nombre").focus();
-        }else{
-            if(descripcion==""){
-                alert("La descripcion es obligatorio digitarla");
-                 document.getElementById("descripcion").focus();
-            }else{
-                if(tiempo==""){
-                    alert("El tiempo es obligatorio digitarlo");
-                  document.getElementById("tiempo").focus();
-                }else{
-                    if(usuario==""){
+      var formulario = document.getElementById('formulario');
+      var nombre = document.getElementById("nombre").value;
+      var descripcion = document.getElementById("descripcion").value;
+      var tiempo = document.getElementById("tiempo").value;
+      var usuario = document.getElementById("usuario").value;
+      var datosenviar = {
+        "nombre": nombre,
+        "descripcion": descripcion,
+        "tiempo": tiempo,
+        "usuario": usuario
+      }
+      if (nombre == "") {
+        alert("El nombre es obligatorio digitarlo");
+        document.getElementById("nombre").focus();
+     
+      }
+      if (descripcion == "") {
+        alert("La descripcion es obligatorio digitarla");
+        document.getElementById("descripcion").focus();
+        
+      }
+      if (tiempo == "") {
+        alert("El tiempo es obligatorio digitarlo");
+        document.getElementById("tiempo").focus();
+      
+      }
+      if (usuario == "") {
 
-                        alert("El usuario es obligatorio digitarlo");
-                  document.getElementById("usuario").focus();
-                    }else{
-                    console.log(nombre +" "+ descripcion+" "+ tiempo +" "+ usuario);
-                    document.getElementById("nombre").value="";
-                    document.getElementById("descripcion").value="";
-                    document.getElementById("tiempo").value="";
-                    document.getElementById("usuario").value="";
-                }
-                }
-            }
-        }
-        formulario.addEventListener('submit', function(e){
-        alert(nombre +" " + descripcion +" "+ tiempo +" " +usuario);
-        e.preventDefault();
+        alert("El usuario es obligatorio digitarlo");
+        document.getElementById("usuario").focus();
+    
+      }
+
+      if (nombre != "" && descripcion != "" && tiempo != "" && usuario != "") {
+        //console.log(nombre + " " + descripcion + " " + tiempo + " " + usuario);
+        document.getElementById("nombre").value = "";
+        document.getElementById("descripcion").value = "";
+        document.getElementById("tiempo").value = "";
+        document.getElementById("usuario").value = "";
+
+
+        formulario.addEventListener('submit', function (e) {
+          alert(nombre + " " + descripcion + " " + tiempo + " " + usuario);
+          e.preventDefault();
         })
 
-        
-        //apis/InsertarCursos.php
-        //{ "nombre":"React 22", "descripcion":"React Junior", "tiempo":"10 Meses", "usuario":"profesor Mario" }
-
-        
         fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php",
-        {
-            method:'POST',
+          {
+            method: 'POST',
             body: JSON.stringify(datosenviar)
-        }
+          }
         )
-         //url de peticion  de datos
-        .then(respuesta => respuesta.json())//recibe los datos en formato json
-        .then((datosrespuesta) =>{
-           
-            console.log('Datos',datosrespuesta)//muesta el resultado de la petición
-        })
-       
-        .catch(console.log)//muestra 
+          //url de peticion  de datos
+          .then(respuesta => respuesta.json())//recibe los datos en formato json
+          .then((datosrespuesta) => {
+
+            console.log('Datos', datosrespuesta)//muesta el resultado de la petición
+          })
+
+          .catch(console.log)//muestra 
+
+      }////cierre
+
+
+
     }
 
-         
 
-       
 
-    
+
+
+
 
   </script>
 </body>
