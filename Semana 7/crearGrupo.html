@@ -21,7 +21,7 @@
         <main>
             <form id="formulario">
                 <div class="mb-3">
-                    <label for="" class="form-label">Grupo</label>
+                    <label for="" class="form-label">Nombre</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
                         placeholder="">
                     <small id="helpId" class="form-text text-muted">Grupo acá</small>
@@ -29,7 +29,7 @@
 
                 <div class="mb-3">
                     <button type="reset" class="btn btn-danger"> Limpiar</button>
-                    <button type="submit" onclick="" class="btn btn-primary"> Guardar</button>
+                    <button type="submit" onclick="captura()" class="btn btn-primary"> Guardar</button>
                 </div>
 
             </form>
@@ -51,32 +51,41 @@
         </script>
 
     <script>
+        function captura() {
+            var formulario = document.getElementById('formulario');
+            var nombre = document.getElementById("nombre").value;
+            var datosenviar = {
+                "nombre": nombre
+            }
 
+            if (nombre == "") {
+                alert("El nombre es obligatorio digitarlo");
+                document.getElementById("nombre").focus();
 
-        const formulario = document.getElementById('formulario');
-        const inputs = document.querySelectorAll('#formulario input');
-      
-        const expresiones = {
-	    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        }
+            } else {
+                document.getElementById("nombre").value = "";
 
-        const validarFormulario = (e)=>{
-           switch( e.target.nombre){
-            case "nombre":
-                console.log('funciona');
-            break;
-           }
-        }
-        inputs.forEach((input)=> {
-            input.addEventListener('keyup', validarFormulario);
-            input.addEventListener('blur', validarFormulario);
-        });
+                formulario.addEventListener('submit', function (e) {
+                    alert(nombre + " ");
+                    e.preventDefault();
+                })
 
-        formulario.addEventListener('submit',(e) =>{
-            e.preventDefault();
+                fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarGrupo.php",
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(datosenviar)
+                    }
+                )
+                    //url de peticion  de datos
+                    .then(respuesta => respuesta.json())//recibe los datos en formato json
+                    .then((datosrespuesta) => {
 
-        });
-        
+                        console.log('Datos', datosrespuesta)//muesta el resultado de la petición
+                    })
+
+                    .catch(console.log)//muestra 
+            }//cierre else
+        }//cierre función
     </script>
 </body>
 
