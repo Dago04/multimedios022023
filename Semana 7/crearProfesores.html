@@ -1,297 +1,395 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#navbar").load("Navbar.html");
+      });
+    </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
+    <div id="navbar"></div>
     <div class="container-fluid">
-        <header>
-            
-        </header>
-        <main>
-            <form id="formulario">
+      <main>
+        <form id="formulario">
+          <div class="mb-3">
+            <label for="" class="form-label">Cedula</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="cedula"
+              id="cedula"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
+          <div class="mb-3">
+            <label for="" class="form-label">Correo Electronico</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="correoelectronico"
+              id="correoelectronico"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3 ">
-                    <label for="" class="form-label">Cedula</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="cedula"
-                        id="cedula" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Telefono</label>
+            <input
+              class="form-control form-control-sm"
+              type="number"
+              class="form-control"
+              name="telefono"
+              id="telefono"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Correo Electronico</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control"
-                        name="correoelectronico" id="correoelectronico" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Telefono Celular</label>
+            <input
+              class="form-control form-control-sm"
+              type="number"
+              class="form-control"
+              name="telefonocelular"
+              id="telefonocelular"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Telefono</label>
-                    <input class="form-control form-control-sm" type="number" class="form-control" name="telefono"
-                        id="telefono" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Fecha de nacimiento</label>
+            <input
+              class="form-control form-control-sm"
+              type="date"
+              class="form-control"
+              name="fechanacimiento"
+              id="fechanacimiento"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Telefono Celular</label>
-                    <input class="form-control form-control-sm" type="number" class="form-control"
-                        name="telefonocelular" id="telefonocelular" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Sexo</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="sexo"
+              id="sexo"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Fecha de nacimiento</label>
-                    <input class="form-control form-control-sm" type="date" class="form-control" name="fechanacimiento"
-                        id="fechanacimiento" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Direccion</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="direccion"
+              id="direccion"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Sexo</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="sexo" id="sexo"
-                        aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nombre</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="nombre"
+              id="nombre"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Direccion</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="direccion"
-                        id="direccion" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Apellido Paterno</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="apellidopaterno"
+              id="apellidopaterno"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Nombre</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="nombre"
-                        id="nombre" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Apellido Materno</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="apellidomaterno"
+              id="apellidomaterno"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Apellido Paterno</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="apellidopaterno"
-                        id="apellidopaterno" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nacionalidad</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="nacionalidad"
+              id="nacionalidad"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Apellido Materno</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="apellidomaterno"
-                        id="apellidomaterno" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">iD Carrera</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="idCarreras"
+              id="idCarreras"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Nacionalidad</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="nacionalidad"
-                        id="nacionalidad" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Usuario</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              class="form-control"
+              name="usuario"
+              id="usuario"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">iD Carrera</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="idCarreras"
-                        id="idCarreras" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Usuario</label>
-                    <input class="form-control form-control-sm" type="text" class="form-control" name="usuario"
-                        id="usuario" aria-describedby="helpId" placeholder="">
-                    <small id="helpId" class="form-text text-muted">Help text</small>
-                </div>
-
-                <div class="mb-3">
-                    <button type="reset" class="btn btn-danger"> Limpiar</button>
-                    <button type="submit" onclick="captura()" class="btn btn-primary"> Guardar</button>
-                </div>
-
-
-            </form>
-        </main>
-        <footer>
-
-        </footer>
+          <div class="mb-3">
+            <button type="reset" class="btn btn-danger">Limpiar</button>
+            <button type="submit" onclick="captura()" class="btn btn-primary">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </main>
+      <footer></footer>
     </div>
 
     <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
+      function captura() {
+        var formulario = document.getElementById("formulario");
+        var cedula = document.getElementById("cedula").value;
+        var correoelectronico =
+          document.getElementById("correoelectronico").value;
+        var telefono = document.getElementById("telefono").value;
+        var telefonocelular = document.getElementById("telefonocelular").value;
+        var fechanacimiento = document.getElementById("fechanacimiento").value;
+        var sexo = document.getElementById("sexo").value;
+        var direccion = document.getElementById("direccion").value;
+        var nombre = document.getElementById("nombre").value;
+        var apellidopaterno = document.getElementById("apellidopaterno").value;
+        var apellidomaterno = document.getElementById("apellidomaterno").value;
+        var nacionalidad = document.getElementById("nacionalidad").value;
+        var idCarreras = document.getElementById("idCarreras").value;
+        var usuario = document.getElementById("usuario").value;
+        var nacionalidad = document.getElementById("nacionalidad").value;
 
+        var datosenviar = {
+          cedula: cedula,
+          correoelectronico: correoelectronico,
+          telefono: telefono,
+          telefonocelular: telefonocelular,
+          fechanacimiento: fechanacimiento,
+          sexo: sexo,
+          direccion: direccion,
+          nombre: nombre,
+          apellidopaterno: apellidopaterno,
+          apellidomaterno: apellidomaterno,
+          idCarreras: idCarreras,
+          usuario: usuario,
+          nacionalidad: nacionalidad,
+        };
+        if (cedula == "") {
+          alert("la cedula es obligatoria digitarlo");
+          document.getElementById("cedula").focus();
+        }
+        if (correoelectronico == "") {
+          alert("El correo electronico es obligatorio");
+          document.getElementById("correoelectronico").focus();
+        }
+        if (telefono == "") {
+          alert("El telefono es obligatorio");
+          document.getElementById("telefono").focus();
+        }
+        if (telefonocelular == "") {
+          alert("El telefono celular es obligatorio");
+          document.getElementById("telefonocelular").focus();
+        }
+        if (fechanacimiento == "") {
+          alert("La fecha de nacimiento es obligatorio");
+          document.getElementById("fechanacimiento").focus();
+        }
+        if (sexo == "") {
+          alert("El sexo es obligatorio");
+          document.getElementById("sexo").focus();
+        }
+        if (direccion == "") {
+          alert("la direccion es obligatorio");
+          document.getElementById("direccion").focus();
+        }
+        if (nombre == "") {
+          alert("El nombre es obligatorio");
+          document.getElementById("nombre").focus();
+        }
+        if (apellidopaterno == "") {
+          alert("El apellido paterno es obligatorio");
+          document.getElementById("apellidopaterno").focus();
+        }
 
-        function captura() {
-            var formulario = document.getElementById("formulario");
-            var cedula = document.getElementById("cedula").value;
-            var correoelectronico = document.getElementById("correoelectronico").value;
-            var telefono = document.getElementById("telefono").value;
-            var telefonocelular = document.getElementById("telefonocelular").value;
-            var fechanacimiento = document.getElementById("fechanacimiento").value;
-            var sexo = document.getElementById("sexo").value;
-            var direccion = document.getElementById("direccion").value;
-            var nombre = document.getElementById("nombre").value;
-            var apellidopaterno = document.getElementById("apellidopaterno").value;
-            var apellidomaterno = document.getElementById("apellidomaterno").value;
-            var nacionalidad = document.getElementById("nacionalidad").value;
-            var idCarreras = document.getElementById("idCarreras").value;
-            var usuario = document.getElementById("usuario").value;
-            var nacionalidad = document.getElementById("nacionalidad").value;
+        if (apellidomaterno == "") {
+          alert("El apellido materno es obligatorio");
+          document.getElementById("apellidomaterno").focus();
+        }
 
+        if (idCarreras == "") {
+          alert("El id de la carrera es obligatorio");
+          document.getElementById("idCarreras").focus();
+        }
 
-            var datosenviar = {
-                "cedula": cedula,
-                "correoelectronico": correoelectronico,
-                "telefono": telefono,
-                "telefonocelular": telefonocelular,
-                "fechanacimiento": fechanacimiento,
-                "sexo": sexo,
-                "direccion": direccion,
-                "nombre": nombre,
-                "apellidopaterno": apellidopaterno,
-                "apellidomaterno": apellidomaterno,
-                "idCarreras": idCarreras,
-                "usuario": usuario,
-                "nacionalidad": nacionalidad
+        if (usuario == "") {
+          alert("el usuario es obligatorio");
+          document.getElementById("usuario").focus();
+        }
 
+        if (nacionalidad == "") {
+          alert("la nacionalidad es obligatorio");
+          document.getElementById("nacionalidad").focus();
+        }
+
+        if (
+          cedula != "" &&
+          correoelectronico != "" &&
+          telefono != "" &&
+          telefonocelular != "" &&
+          fechanacimiento != "" &&
+          sexo != "" &&
+          direccion != "" &&
+          nombre != "" &&
+          apellidopaterno != "" &&
+          apellidomaterno != "" &&
+          nacionalidad != "" &&
+          idCarreras != "" &&
+          usuario != ""
+        ) {
+          var cedula = (document.getElementById("cedula").value = "");
+          var correoelectronico = (document.getElementById(
+            "correoelectronico"
+          ).value = "");
+          var telefono = (document.getElementById("telefono").value = "");
+          var telefonocelular = (document.getElementById(
+            "telefonocelular"
+          ).value = "");
+          var fechanacimiento = (document.getElementById(
+            "fechanacimiento"
+          ).value = "");
+          var sexo = (document.getElementById("sexo").value = "");
+          var direccion = (document.getElementById("direccion").value = "");
+          var nombre = (document.getElementById("nombre").value = "");
+          var apellidopaterno = (document.getElementById(
+            "apellidopaterno"
+          ).value = "");
+          var apellidomaterno = (document.getElementById(
+            "apellidomaterno"
+          ).value = "");
+          var nacionalidad = (document.getElementById("nacionalidad").value =
+            "");
+          var idCarreras = (document.getElementById("idCarreras").value = "");
+          var usuario = (document.getElementById("usuario").value = "");
+
+          formulario.addEventListener("submit", function (e) {
+            e.preventDefault();
+          });
+
+          fetch(
+            "https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php",
+            {
+              method: "POST",
+              body: JSON.stringify(datosenviar),
             }
-            if (cedula == "") {
-                alert("la cedula es obligatoria digitarlo");
-                document.getElementById("cedula").focus();
-            }
-            if (correoelectronico == "") {
-                alert("El correo electronico es obligatorio");
-                document.getElementById("correoelectronico").focus();
+          )
+            //url de peticion  de datos
+            .then((respuesta) => respuesta.json()) //recibe los datos en formato json
+            .then((datosrespuesta) => {
+              console.log("Datos", datosrespuesta); //muesta el resultado de la petición
+            })
 
-            }
-            if (telefono == "") {
-                alert("El telefono es obligatorio");
-                document.getElementById("telefono").focus();
+            .catch(console.log); //muestra
 
-            }
-            if (telefonocelular == "") {
-                alert("El telefono celular es obligatorio");
-                document.getElementById("telefonocelular").focus();
-
-            }
-            if (fechanacimiento == "") {
-                alert("La fecha de nacimiento es obligatorio");
-                document.getElementById("fechanacimiento").focus();
-
-            }
-            if (sexo == "") {
-                alert("El sexo es obligatorio");
-                document.getElementById("sexo").focus();
-
-            }
-            if (direccion == "") {
-                alert("la direccion es obligatorio");
-                document.getElementById("direccion").focus();
-
-            }
-            if (nombre == "") {
-                alert("El nombre es obligatorio");
-                document.getElementById("nombre").focus();
-
-            }
-            if (apellidopaterno == "") {
-                alert("El apellido paterno es obligatorio");
-                document.getElementById("apellidopaterno").focus();
-
-            }
-
-            if (apellidomaterno == "") {
-                alert("El apellido materno es obligatorio");
-                document.getElementById("apellidomaterno").focus();
-
-            }
-
-            if (idCarreras == "") {
-                alert("El id de la carrera es obligatorio");
-                document.getElementById("idCarreras").focus();
-            }
-
-            if (usuario == "") {
-                alert("el usuario es obligatorio");
-                document.getElementById("usuario").focus();
-            }
-
-            if (nacionalidad == "") {
-                alert("la nacionalidad es obligatorio");
-                document.getElementById("nacionalidad").focus();
-
-            }
-
-            if (cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != "" && sexo != "" && direccion != "" &&
-                nombre != "" && apellidopaterno != "" && apellidomaterno != "" && nacionalidad != "" && idCarreras != "" && usuario != "") {
-
-                var cedula = document.getElementById("cedula").value = "";
-                var correoelectronico = document.getElementById("correoelectronico").value = "";
-                var telefono = document.getElementById("telefono").value = "";
-                var telefonocelular = document.getElementById("telefonocelular").value = "";
-                var fechanacimiento = document.getElementById("fechanacimiento").value = "";
-                var sexo = document.getElementById("sexo").value = "";
-                var direccion = document.getElementById("direccion").value = "";
-                var nombre = document.getElementById("nombre").value = "";
-                var apellidopaterno = document.getElementById("apellidopaterno").value = "";
-                var apellidomaterno = document.getElementById("apellidomaterno").value = "";
-                var nacionalidad = document.getElementById("nacionalidad").value = "";
-                var idCarreras = document.getElementById("idCarreras").value = "";
-                var usuario = document.getElementById("usuario").value = "";
-
-                formulario.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                })
-
-                fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php",
-                    {
-                        method: 'POST',
-                        body: JSON.stringify(datosenviar)
-                    }
-                )
-                    //url de peticion  de datos
-                    .then(respuesta => respuesta.json())//recibe los datos en formato json
-                    .then((datosrespuesta) => {
-
-                        console.log('Datos', datosrespuesta)//muesta el resultado de la petición
-                    })
-
-                    .catch(console.log)//muestra 
-
-                alert("profesor agregado con exito");
-
-
-            } else {
-                alert("no se pudo registrar el profesor");
-            }
-
-
-
-
-        }//cierre funcion
-
-
-
-
-
+          alert("profesor agregado con exito");
+        } else {
+          alert("no se pudo registrar el profesor");
+        }
+      } //cierre funcion
     </script>
-</body>
-
+  </body>
 </html>
