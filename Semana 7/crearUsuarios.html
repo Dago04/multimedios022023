@@ -25,21 +25,21 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Name</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
-                        placeholder="name">
+                        placeholder="Digite su nombre">
                     <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Email</label>
                     <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId"
-                        placeholder="">
+                        placeholder="correo@gmail.com">
                     <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
-                    <label for="" class="form-label">password</label>
+                    <label for="" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" id="password" aria-describedby="helpId"
-                        placeholder="@gmail.com">
+                        placeholder="digite su contraseña">
                     <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
@@ -67,39 +67,37 @@
         function captura() {
             var formulario = document.getElementById('formulario');
             var name = document.getElementById("name").value;
-            var password = document.getElementById("password").value;
             var email = document.getElementById("email").value;
-            var datosenviar={
-                "name": name,
-                "password": password,
-                "email": email
-              
+            var password = document.getElementById("password").value;
+            var datosenviar ={
+                "name":name,
+                "email":email,
+                "password":password
             }
 
             if (name == "") {
                 alert("El nombre es obligatorio digitarlo");
                 document.getElementById("name").focus();
-              
-            }
 
-            if (password == "") {
-                alert("La contraseña es obligatorio digitarlo");
-                document.getElementById("password").focus();
-               
             }
-
             if (email == "") {
-                alert("El correo electronico es obligatorio digitarlo");
+                alert("El email es obligatorio digitarlo");
                 document.getElementById("email").focus();
-               
+
+            }
+            if (password == "") {
+                alert("la contraseña es obligatorio digitarlo");
+                document.getElementById("password").focus();
+
             }
 
-            if (name!= "" && password!= "" && email != "") {
+            if (name != "" && email != "" && password != "") {
                 document.getElementById("name").value = "";
-                document.getElementById("password").value = "";
                 document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
 
                 formulario.addEventListener('submit', function (e) {
+
                     e.preventDefault();
                 })
 
@@ -117,11 +115,10 @@
                     })
 
                     .catch(console.log)//muestra 
-            }else{
-                alert("El usuario no se pudo agregar");
-            }//cierre if
+            }
 
-        }//cierre funcion
+        }
+
     </script>
 </body>
 

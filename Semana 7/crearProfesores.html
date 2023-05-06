@@ -153,6 +153,8 @@
             var nacionalidad = document.getElementById("nacionalidad").value;
             var idCarreras = document.getElementById("idCarreras").value;
             var usuario = document.getElementById("usuario").value;
+            var nacionalidad = document.getElementById("nacionalidad").value;
+           
 
             var datosenviar = {
                 "cedula": cedula,
@@ -165,9 +167,9 @@
                 "nombre": nombre,
                 "apellidopaterno": apellidopaterno,
                 "apellidomaterno": apellidomaterno,
-                "nacionalidad": nacionalidad,
                 "idCarreras": idCarreras,
-                "usuario": usuario
+                "usuario": usuario,
+                "nacionalidad": nacionalidad
 
             }
             if (cedula == "") {
@@ -221,13 +223,6 @@
 
             }
 
-            if (nacionalidad == "") {
-                alert("la nacionalidad es obligatorio");
-                document.getElementById("nacionalidad").focus();
-
-            }
-
-
             if (idCarreras == "") {
                 alert("El id de la carrera es obligatorio");
                 document.getElementById("idCarreras").focus();
@@ -238,28 +233,34 @@
                 document.getElementById("usuario").focus();
             }
 
+            if (nacionalidad == "") {
+                alert("la nacionalidad es obligatorio");
+                document.getElementById("nacionalidad").focus();
+
+            }
+
             if (cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != "" && sexo != "" && direccion != "" &&
                 nombre != "" && apellidopaterno != "" && apellidomaterno != "" && nacionalidad != "" && idCarreras != "" && usuario != "") {
 
                 var cedula = document.getElementById("cedula").value="";
                 var correoelectronico = document.getElementById("correoelectronico").value="";
-                var telefono = document.getElementById("telefono").value= "";
-                var telefonocelular = document.getElementById("telefonocelular").value= "";
-                var fechanacimiento = document.getElementById("fechanacimiento").value= "";
-                var sexo = document.getElementById("sexo").value= "";
-                var direccion = document.getElementById("direccion").value= "";
-                var nombre = document.getElementById("nombre").value= "";
-                var apellidopaterno = document.getElementById("apellidopaterno").value= "";
-                var apellidomaterno = document.getElementById("apellidomaterno").value= "";
-                var nacionalidad = document.getElementById("nacionalidad").value= "";
-                var idCarreras = document.getElementById("idCarreras").value= "";
-                var usuario = document.getElementById("usuario").value= "";
+                var telefono = document.getElementById("telefono").value = "";
+                var telefonocelular = document.getElementById("telefonocelular").value = "";
+                var fechanacimiento = document.getElementById("fechanacimiento").value = "";
+                var sexo = document.getElementById("sexo").value = "";
+                var direccion = document.getElementById("direccion").value = "";
+                var nombre = document.getElementById("nombre").value = "";
+                var apellidopaterno = document.getElementById("apellidopaterno").value = "";
+                var apellidomaterno = document.getElementById("apellidomaterno").value = "";
+                var nacionalidad = document.getElementById("nacionalidad").value = "";
+                var idCarreras = document.getElementById("idCarreras").value = "";
+                var usuario = document.getElementById("usuario").value = "";
 
                 formulario.addEventListener('submit', function (e) {
                     e.preventDefault();
                 })
 
-                fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php",
+                fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php",
                     {
                         method: 'POST',
                         body: JSON.stringify(datosenviar)
@@ -274,10 +275,11 @@
 
                     .catch(console.log)//muestra 
 
+                    alert("profesor agregado con exito");
 
 
             } else {
-                alert("no se pudo registrar el estudiante");
+                alert("no se pudo registrar el profesor");
             }
 
 
