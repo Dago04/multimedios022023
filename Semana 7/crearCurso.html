@@ -16,7 +16,7 @@
 <body>
   <div class="container-fluid">
     <header>
-      <iframe src="Menu.html" style="height:100px;width:300px;" title="Iframe Example"></iframe>
+     
     </header>
     <main>
       <form id="formulario">
@@ -86,23 +86,23 @@
       if (nombre == "") {
         alert("El nombre es obligatorio digitarlo");
         document.getElementById("nombre").focus();
-     
+
       }
       if (descripcion == "") {
         alert("La descripcion es obligatorio digitarla");
         document.getElementById("descripcion").focus();
-        
+
       }
       if (tiempo == "") {
         alert("El tiempo es obligatorio digitarlo");
         document.getElementById("tiempo").focus();
-      
+
       }
       if (usuario == "") {
 
         alert("El usuario es obligatorio digitarlo");
         document.getElementById("usuario").focus();
-    
+
       }
 
       if (nombre != "" && descripcion != "" && tiempo != "" && usuario != "") {
@@ -114,7 +114,7 @@
 
 
         formulario.addEventListener('submit', function (e) {
-         
+
           e.preventDefault();
         })
 
@@ -133,7 +133,7 @@
 
           .catch(console.log)//muestra 
 
-      }else{
+      } else {
         alert("No se pudo agregar el curso");
       }////cierre
 
