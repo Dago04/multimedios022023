@@ -87,7 +87,7 @@
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                 Cerrar
               </button>
-              <button type="submit" class="btn btn-primary">Guardar</button>
+              <button type="submit" onclick="" class="btn btn-primary">Guardar</button>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@
                             <td>${valor.usuario}</td>
                             <td>
                               <button type="button" onclick="aviso()"class="btn btn-danger">Borrar</button>
-                              <button id ="botonCurso" type="button" onclick="mostrar('${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
+                              <button type="button" onclick="editar('${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
                             </td>
                             
                         </tr>`;
@@ -156,13 +156,15 @@
     }
 
 
-    function mostrar(nombre, descripcion,tiempo,usuario) {
+    function editar(nombre, descripcion,tiempo,usuario) {
          
           document.getElementById('nombre').value = nombre;
           document.getElementById('descripcion').value = descripcion;
           document.getElementById('tiempo').value = tiempo;
           document.getElementById('usuario').value = usuario;
            myModal.show();
+
+           
     }
   </script>
 </body>
