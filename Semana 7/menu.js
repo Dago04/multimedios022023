@@ -1,10 +1,9 @@
 var contenidoMenuResultado = document.querySelector("#navbarID");
 
-contenidoMenuResultado.innerHTML +=`   
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+contenidoMenuResultado.innerHTML +=`<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
 <div class="container-fluid">
   <!--icono-->
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="Index.html">
     <i class="bi bi-cup-hot-fill"></i>
     <span class="text-warning">Tearlament</span>
   </a>
@@ -23,7 +22,7 @@ contenidoMenuResultado.innerHTML +=`
   <div class="collapse navbar-collapse" id="menu">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Inicio</a>
+        <a class="nav-link active" href="Index.html">Inicio</a>
       </li>
       <li class="nav-item dropdown">
         <a
@@ -136,5 +135,6 @@ contenidoMenuResultado.innerHTML +=`
     </ul>
   </div>
 </div>
-</nav>
+</nav>  
+
 `;
