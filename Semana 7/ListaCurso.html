@@ -87,7 +87,7 @@
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                 Cerrar
               </button>
-              <button type="submit" onclick="editar()" class="btn btn-primary">Guardar</button>
+              <button type="submit" onclick="" class="btn btn-primary">Guardar</button>
             </div>
           </div>
         </div>
@@ -166,30 +166,7 @@
 
     }
 
-    function editar() {
-      var nombre = document.getElementById("nombre").value ;
-      var descripcion = document.getElementById("descripcion").value; 
-      var tiempo = document.getElementById("tiempo").value ;
-      var usuario= document.getElementById("usuario").value;
-      var datosenviar = {
-        "nombre": nombre,
-        "descripcion": descripcion,
-        "tiempo": tiempo,
-        "usuario": usuario
-      }
-
-      fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php", {
-        method: "POST",
-        body: JSON.stringify(datosenviar),
-      })
-        //url de peticion  de datos
-        .then((respuesta) => respuesta.json()) //recibe los datos en formato json
-        .then((datosrespuesta) => {
-          console.log("Datos", datosrespuesta); //muesta el resultado de la petición
-        })
-
-        .catch(console.log); //muestra
-    }
+    
   </script>
 </body>
 
