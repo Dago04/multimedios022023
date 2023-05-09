@@ -87,7 +87,7 @@
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                 Cerrar
               </button>
-              <button type="submit" onclick="" class="btn btn-primary">Guardar</button>
+              <button type="submit" onclick="editar()" class="btn btn-primary">Guardar</button>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@
                             <td>${valor.usuario}</td>
                             <td>
                               <button type="button" onclick="aviso()"class="btn btn-danger">Borrar</button>
-                              <button type="button" onclick="editar('${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
+                              <button type="button" onclick="mostrar('${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
                             </td>
                             
                         </tr>`;
@@ -156,15 +156,41 @@
     }
 
 
-    function editar(nombre, descripcion,tiempo,usuario) {
-         
-          document.getElementById('nombre').value = nombre;
-          document.getElementById('descripcion').value = descripcion;
-          document.getElementById('tiempo').value = tiempo;
-          document.getElementById('usuario').value = usuario;
-           myModal.show();
+    function mostrar(nombre, descripcion, tiempo, usuario) {
 
-           
+      document.getElementById('nombre').value = nombre;
+      document.getElementById('descripcion').value = descripcion;
+      document.getElementById('tiempo').value = tiempo;
+      document.getElementById('usuario').value = usuario;
+      myModal.show();
+
+    }
+
+    function editar() {
+      var id = document.getElementById("id").value ;
+      var nombre = document.getElementById("nombre").value ;
+      var descripcion = document.getElementById("descripcion").value; 
+      var tiempo = document.getElementById("tiempo").value ;
+      var usuario= document.getElementById("usuario").value;
+      var datosenviar = {
+        "id": id,
+        "nombre": nombre,
+        "descripcion": descripcion,
+        "tiempo": tiempo,
+        "usuario": usuario
+      }
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php", {
+        method: "POST",
+        body: JSON.stringify(datosenviar),
+      })
+        //url de peticion  de datos
+        .then((respuesta) => respuesta.json()) //recibe los datos en formato json
+        .then((datosrespuesta) => {
+          console.log("Datos", datosrespuesta); //muesta el resultado de la petición
+        })
+
+        .catch(console.log); //muestra
     }
   </script>
 </body>
