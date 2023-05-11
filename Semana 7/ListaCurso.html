@@ -43,8 +43,59 @@
         </table>
       </div>
 
-     <div id="modalCursos">
-     </div>
+      <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formulario">
+                <div class="mb-3">
+                  <input type="hidden" id="id" name="id">
+                  <label for="" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+                    placeholder="Ingresa el nombre del curso" />
+                  <small id="helpId" class="form-text text-muted">Nomber aca</small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="" class="form-label">Descripcion</label>
+                  <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
+                    placeholder="Ingresa ela descripcion del curso" />
+                  <small id="helpId" class="form-text text-muted">Descripcion aca</small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="" class="form-label">Tiempo</label>
+                  <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
+                    placeholder="Ingresa el tiempo del curso" />
+                  <small id="helpId" class="form-text text-muted">Tiempo aca</small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
+                    placeholder="Ingresa el tiempo del curso" />
+                  <small id="helpId" class="form-text text-muted">Usuario aca</small>
+                </div>
+
+                <div class="mb-3">
+                  <button type="reset" class="btn btn-danger">Reiniciar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+
+                </div>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>
@@ -63,17 +114,16 @@
 
   <script>
     const myModal = new bootstrap.Modal(document.getElementById("modalId"));
-    //declaracion de variables u objetos
-
     var contenidoTablaResultado = document.querySelector("#resultados");
+    var formulario = document.getElementById('formulario');
 
-    // {"id":"377","nombre":"hola leo","descripcion":"sdsd","tiempo":"asasa"}
+
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php") //url de peticion  de datos
         .then((respuesta) => respuesta.json()) //recibe los datos en formato json
         .then((datosrespuesta) => {
           setTabla(datosrespuesta.data); //lo envio para la funcion para darle tratamiento
-          //console.log('Datos',datosrespuesta.data)//muesta el resultado de la petición
+
         })
 
         .catch(console.log); //muestra
@@ -81,9 +131,6 @@
 
     function setTabla(datos) {
       console.log("datos", datos);
-      //contenidoTablaResultado.innerHTML='test'
-      //alt 96 comilla invertida
-
       for (const valor of datos) {
         console.log("valor: ", valor);
         contenidoTablaResultado.innerHTML += `
@@ -102,7 +149,7 @@
                         </tr>`;
       }
     }
-    cargarDatos();
+
 
     //funcion para mandar un mensaje al apretar el boton de eliminar
     function aviso() {
@@ -120,7 +167,38 @@
 
     }
 
-    
+    //funciuon para editar un curso
+    formulario.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("editando");
+
+      var id = document.getElementById('id').value;
+      var nombre = document.getElementById('nombre').value;
+      var tiempo = document.getElementById('tiempo').value;
+      var usuario = document.getElementById('usuario').value
+
+      var datosenviar = {
+        id: id,
+        nombre : nombre,
+        tiempo : tiempo,
+        usuario: usuario
+      }
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php",
+        {
+          method: "POST",
+          body: JSON.stringify(datosenviar)
+        })//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrepuesta) => {
+          window.location = 'ListaCurso.html'
+          console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+        })
+        .catch(console.log)//muestra errores
+    })
+
+    cargarDatos();
+
   </script>
 </body>
 
