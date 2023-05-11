@@ -110,7 +110,7 @@
     crossorigin="anonymous"></script>
 
   <script src="menu.js"></script>
-  <script src="modalCursos.js"></script>
+ 
 
   <script>
     const myModal = new bootstrap.Modal(document.getElementById("modalId"));
@@ -132,7 +132,7 @@
     function setTabla(datos) {
       console.log("datos", datos);
       for (const valor of datos) {
-        console.log("valor: ", valor);
+       
         contenidoTablaResultado.innerHTML += `
            
                          <tr class="table-primary" >
@@ -142,8 +142,9 @@
                             <td>${valor.tiempo}</td>
                             <td>${valor.usuario}</td>
                             <td>
-                              <button type="button" onclick="aviso()"class="btn btn-danger">Borrar</button>
-                              <button type="button" onclick="mostrar('${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
+                              <button type="button" onclick="eliminar('${valor.id}')"class="btn btn-danger">Borrar</button>
+                              ||
+                              <button type="button" onclick="mostrar('${valor.id}','${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
                             </td>
                             
                         </tr>`;
@@ -157,12 +158,13 @@
     }
 
 
-    function mostrar(nombre, descripcion, tiempo, usuario) {
-
+    function mostrar(id, nombre, descripcion, tiempo, usuario) {
+      document.getElementById('id').value = id;
       document.getElementById('nombre').value = nombre;
       document.getElementById('descripcion').value = descripcion;
       document.getElementById('tiempo').value = tiempo;
       document.getElementById('usuario').value = usuario;
+    
       myModal.show();
 
     }
@@ -174,12 +176,14 @@
 
       var id = document.getElementById('id').value;
       var nombre = document.getElementById('nombre').value;
+      var descripcion= document.getElementById('descripcion').value;
       var tiempo = document.getElementById('tiempo').value;
       var usuario = document.getElementById('usuario').value
 
       var datosenviar = {
         id: id,
         nombre : nombre,
+        descripcion: descripcion,
         tiempo : tiempo,
         usuario: usuario
       }
@@ -196,6 +200,27 @@
         })
         .catch(console.log)//muestra errores
     })
+
+
+    function eliminar(id){
+      alert('eliminar'+ id);
+    var datosenviar = {
+            id: id
+        }
+        // console.log(datosenviar);
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+        {
+            method:"POST",
+            body:JSON.stringify(datosenviar)
+        })//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrepuesta) => {    
+          window.location = 'ListaCurso.html'
+            alert(datosrepuesta.data)     
+             console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+        })
+        .catch(console.log)//muestra errores
+  }
 
     cargarDatos();
 
