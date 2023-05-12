@@ -45,7 +45,7 @@
 
       <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
         role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="modalTitleId">Modal title</h5>
@@ -58,28 +58,28 @@
                   <label for="" class="form-label">Nombre</label>
                   <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
                     placeholder="Ingresa el nombre del curso" />
-                  <small id="helpId" class="form-text text-muted">Nomber aca</small>
+                  <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Descripcion</label>
                   <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
                     placeholder="Ingresa ela descripcion del curso" />
-                  <small id="helpId" class="form-text text-muted">Descripcion aca</small>
+                  <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Tiempo</label>
                   <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
                     placeholder="Ingresa el tiempo del curso" />
-                  <small id="helpId" class="form-text text-muted">Tiempo aca</small>
+                  <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Usuario</label>
                   <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
                     placeholder="Ingresa el tiempo del curso" />
-                  <small id="helpId" class="form-text text-muted">Usuario aca</small>
+                  <small id="helpId" class="form-text text-muted"></small>
                 </div>
 
                 <div class="mb-3">
@@ -110,7 +110,7 @@
     crossorigin="anonymous"></script>
 
   <script src="menu.js"></script>
- 
+
 
   <script>
     const myModal = new bootstrap.Modal(document.getElementById("modalId"));
@@ -132,7 +132,7 @@
     function setTabla(datos) {
       console.log("datos", datos);
       for (const valor of datos) {
-       
+
         contenidoTablaResultado.innerHTML += `
            
                          <tr class="table-primary" >
@@ -142,7 +142,7 @@
                             <td>${valor.tiempo}</td>
                             <td>${valor.usuario}</td>
                             <td>
-                              <button type="button" onclick="eliminar('${valor.id}')"class="btn btn-danger">Borrar</button>
+                              <button type="button" onclick="eliminar('${valor.id}')" class="btn btn-danger">Borrar</button>
                               ||
                               <button type="button" onclick="mostrar('${valor.id}','${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')" class="btn btn-primary">Editar</button>
                             </td>
@@ -153,9 +153,6 @@
 
 
     //funcion para mandar un mensaje al apretar el boton de eliminar
-    function aviso() {
-      alert("Eliminado");
-    }
 
 
     function mostrar(id, nombre, descripcion, tiempo, usuario) {
@@ -164,31 +161,62 @@
       document.getElementById('descripcion').value = descripcion;
       document.getElementById('tiempo').value = tiempo;
       document.getElementById('usuario').value = usuario;
-    
+
       myModal.show();
 
     }
 
     //funciuon para editar un curso
     formulario.addEventListener('submit', function (e) {
+
       e.preventDefault();
-      alert("editando");
+
 
       var id = document.getElementById('id').value;
       var nombre = document.getElementById('nombre').value;
-      var descripcion= document.getElementById('descripcion').value;
+      var descripcion = document.getElementById('descripcion').value;
       var tiempo = document.getElementById('tiempo').value;
       var usuario = document.getElementById('usuario').value
 
       var datosenviar = {
         id: id,
-        nombre : nombre,
+        nombre: nombre,
         descripcion: descripcion,
-        tiempo : tiempo,
+        tiempo: tiempo,
         usuario: usuario
       }
+      if (id != " " && nombre != "" && descripcion != "" && tiempo != "" && usuario != "") {
 
-      fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php",
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php",
+          {
+            method: "POST",
+            body: JSON.stringify(datosenviar)
+          })//url de peticion de datos
+          .then(respuesta => respuesta.json())//recibe los datos en formato json
+          .then((datosrepuesta) => {
+            window.location = 'ListaCurso.html'
+            alert("Se modificó correctamente");
+            console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+          })
+          .catch(console.log)//muestra errores
+      } else {
+
+        alert("No se pudo editar");
+      }
+
+
+    })
+
+
+
+
+    function eliminar(id) {
+      alert('eliminar' + id);
+      var datosenviar = {
+        id: id
+      }
+      // console.log(datosenviar);
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
         {
           method: "POST",
           body: JSON.stringify(datosenviar)
@@ -196,31 +224,11 @@
         .then(respuesta => respuesta.json())//recibe los datos en formato json
         .then((datosrepuesta) => {
           window.location = 'ListaCurso.html'
+          alert(datosrepuesta.data)
           console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
         })
         .catch(console.log)//muestra errores
-    })
-
-
-    function eliminar(id){
-      alert('eliminar'+ id);
-    var datosenviar = {
-            id: id
-        }
-        // console.log(datosenviar);
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
-        {
-            method:"POST",
-            body:JSON.stringify(datosenviar)
-        })//url de peticion de datos
-        .then(respuesta => respuesta.json())//recibe los datos en formato json
-        .then((datosrepuesta) => {    
-          window.location = 'ListaCurso.html'
-            alert(datosrepuesta.data)     
-             console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
-        })
-        .catch(console.log)//muestra errores
-  }
+    }
 
     cargarDatos();
 
