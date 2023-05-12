@@ -1,6 +1,6 @@
 var contenidoMenuResultado = document.querySelector("#navbarID");
 
-contenidoMenuResultado.innerHTML +=`<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+contenidoMenuResultado.innerHTML += `<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
 <div class="container-fluid">
   <!--icono-->
   <a class="navbar-brand" href="Index.html">
@@ -82,7 +82,9 @@ contenidoMenuResultado.innerHTML +=`<nav class="navbar navbar-expand-md navbar-d
           href="#"
           >Registro</a
         >
+        
         <ul class="dropdown-menu bg-secondary">
+          
           <li>
             <a class="dropdown-item" href="crearEstudiante.html"
               >Insertar Estudiante</a
@@ -113,7 +115,13 @@ contenidoMenuResultado.innerHTML +=`<nav class="navbar navbar-expand-md navbar-d
     </ul>
     <hr class="text-white-50" />
     <!--Enlaces redes sociales-->
+    
     <ul class="text-light navbar-nav flex-row flex-wrap">
+
+       <li class="nav-item col-6 col-md auto p-3">
+    
+         <h5 class="text-warning"> Contactame</h5>
+      </li>
       <li class="nav-item col-6 col-md auto p-3">
         <i class="bi bi-github"></i>
         <small class="text-warning d-md-none ms-2"> Github</small>
