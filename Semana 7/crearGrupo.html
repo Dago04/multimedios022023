@@ -21,20 +21,22 @@
   </header>
  
     <main>
-      <form id="formulario">
-        <div class="mb-3">
-          <label for="" class="form-label">Nombre</label>
-          <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="" />
-          <small id="helpId" class="form-text text-muted">Grupo acá</small>
-        </div>
-
-        <div class="mb-3">
-          <button type="reset" class="btn btn-danger">Limpiar</button>
-          <button type="submit" onclick="captura()" class="btn btn-primary">
-            Guardar
-          </button>
-        </div>
-      </form>
+      <div class="container-fluid">
+        <form id="formulario">
+          <div class="mb-3">
+            <label for="" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="" />
+            <small id="helpId" class="form-text text-muted">Grupo acá</small>
+          </div>
+  
+          <div class="mb-3">
+            <button type="reset" class="btn btn-danger">Limpiar</button>
+            <button type="submit" onclick="captura()" class="btn btn-primary">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
     <footer>
       <div id="footerID"></div>
