@@ -1,110 +1,63 @@
 var contenidoFooter = document.querySelector("#footerID");
 
-contenidoFooter.innerHTML += `<footer class=" footer text-center text-lg-start text-dark mt-3" style="background-color: gray">
+contenidoFooter.innerHTML += ` <footer class="bg-dark text-white pt-5 pb-4">
+<div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Proyecto</h5>
+            <p> Construya un micro-sitio que sea de su tema
+                de preferencia(Estilos y colores), y el sitio web debe utilizar un framework ( este caso deben
+                usar Bootstrap) que lo permita ser responsive(adaptativo a los diferentes anchos de
+                pantalla)
+            </p>
+        </div>
 
-<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Estudiante</h5>
+            <p>
+                Dagoberto Salas Cordero, Estudiante de ultimo año de la carrera de informatica empresarial de la Universidad de Costa Rica.
+            </p>
 
-    <div class="me-5 d-none d-lg-block">
-        <span>Contactate conmigo</span>
+        
+        </div>
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Acerca de</h5>
+            <p>
+                Primero Proyecto Individual, Curso multimedios, Universidad de Costa Rica
+            </p>
+
+        </div>
     </div>
 
+    <hr class="mb-4">
 
-
-    <div>
-        <a href="" class="me-4 text-reset">
-            <i class="bi bi-github"></i> 
-        </a>
-        <a href="" class="me-4 text-reset">
-            <i class="bi bi-instagram"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-            <i class="bi bi-whatsapp"></i>
-
-        </a>
-        <a href="" class="me-4 text-reset">
-            <i class="bi bi-envelope"></i>
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<section class="">
-    <div class="container text-center text-md-start mt-5">
-
-        <div class="row mt-3">
-
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-                <h6 class="text-uppercase fw-bold mb-4">
-                    <i class="fas fa-gem me-3"></i>Natural Lodge
-                </h6>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati perspiciatis minus beatae
-                    explicabo,
-                    corporis porro quidem? Adipisci assumenda neque voluptatem incidunt doloribus, impedit
-                    repellat facilis id
-                    aliquam quisquam, maxime molestias!
-                </p>
+    <div class="row align-items-center">
+        <div class="col-md-7 col-lg-8">
+            <p>
+                Copyright 2023 All rights reserved by:
+                <a href="#" style="text-decoration: none;">
+                    <strong class="text-warning">Dagoberto Salas</strong>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-right">
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item"> 
+                        <a href="https://github.com/Dago04/multimedios022023.git" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="bi bi-github"></i></a>
+                    </li>
+                   
+                    <li class="list-inline-item"> 
+                        <a href="https://www.linkedin.com/in/dagoberto-salas-cordero-10205521b/" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="bi bi-linkedin"></i></i></i></a>
+                    </li>
+                </ul>
             </div>
-
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Sobre Nosotros
-                </h6>
-                <p>
-                    <a href="#!" class="text-reset">Angular</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">React</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Vue</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Laravel</a>
-                </p>
-            </div>
-
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Habitaciones
-                </h6>
-                <p>
-                    <a href="#!" class="text-reset">Pricing</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Settings</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                    <a href="#!" class="text-reset">Help</a>
-                </p>
-            </div>
-
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                <h6 class="text-uppercase fw-bold mb-4">Contact0</h6>
-                <p><i class="fas fa-home me-3"></i> La Tigra, San Carlos</p>
-                <p>
-                    <i class="fas fa-envelope me-3"></i>
-                    Naturallodge@gmail.com
-                </p>
-                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-            </div>
-
         </div>
 
     </div>
-</section>
 
+</div>
 
 
 </footer>
