@@ -109,6 +109,22 @@
       </div>
     </div>
 
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    role="dialog" aria-labelledby="errorTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Error!</h5>
+          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body justify-content-center">
+          No se pudo realizar la acción
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   </main>
 
@@ -139,6 +155,7 @@
     const myModal = new bootstrap.Modal(document.getElementById("modalId"));
     const myModal2 = new bootstrap.Modal(document.getElementById('modalId2'))
     const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
 
 
     // {"id":"377","nombre":"hola leo","descripcion":"sdsd","tiempo":"asasa"}
@@ -179,7 +196,9 @@
       document.getElementById('id1').value = id;
       myModal2.show();
     }
-
+    function mostrarError(){
+      myModal4.show();
+    }
     function mostrar(id, nombre) {
       document.getElementById('id').value = id;
       document.getElementById('nombre').value = nombre;
@@ -222,7 +241,7 @@
           .catch(console.log)//muestra errores
       } else {
 
-        alert("No se pudo editar");
+       mostrarError();
       }
 
 
