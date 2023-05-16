@@ -110,15 +110,15 @@
             <h5 class="modal-title" id="modalTitleId">Está seguro de eliminar el siguiente curso?</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body justify-content-center" >
-           <form id="eliminarAlerta">
-            <div class="mb-3 text-center">
-            <input type="text" id="id1" name="id1"; class="form-control border-0"><br>
-            </div>
-            <div class="mb-3 ">
-              <button  type="submit" class="btn btn-danger">Eliminar</button>
-            </div>
-           </form>
+          <div class="modal-body justify-content-center">
+            <form id="eliminarAlerta">
+              <div class="mb-3 text-center">
+                <input type="text" id="id1" name="id1" ; class="form-control border-0"><br>
+              </div>
+              <div class="mb-3 ">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -126,20 +126,21 @@
 
 
 
-    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="confirmacionTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body justify-content-center" >
-          Accion Realizada correctamente
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaCurso.html'" type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            Accion Realizada correctamente
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
     <!-- Optional: Place to the bottom of scripts -->
@@ -158,7 +159,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
     crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 
   <script src="menu.js"></script>
   <script src="footer.js"></script>
@@ -176,7 +177,7 @@
     const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
 
 
-  
+
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php") //url de peticion  de datos
         .then((respuesta) => respuesta.json()) //recibe los datos en formato json
@@ -210,21 +211,18 @@
       }
     }
 
-   
+
 
 
 
     //funcion para mandar un mensaje al apretar el boton de eliminar
 
-    function mostrarAlerta(id){
+    function mostrarAlerta(id) {
       document.getElementById('id1').value = id;
       myModal2.show();
     }
 
-    function mostrarConfirmacion(){
-      
-     
-      
+    function mostrarConfirmacion() {
       myModal.hide();
       myModal2.hide();
       myModal3.show();
@@ -262,7 +260,7 @@
       }
       if (id != " " && nombre != "" && descripcion != "" && tiempo != "" && usuario != "") {
 
-      
+
         fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php",
           {
             method: "POST",
@@ -270,13 +268,13 @@
           })//url de peticion de datos
           .then(respuesta => respuesta.json())//recibe los datos en formato json
           .then((datosrepuesta) => {
-            //window.location = 'ListaCurso.html'
+
             mostrarConfirmacion();
-       
+
             console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
-           
+
           })
-          
+
           .catch(console.log)//muestra errores
       } else {
 
@@ -287,12 +285,12 @@
     })
 
 
-    eliminarAlerta.addEventListener('submit', function(e){
+    eliminarAlerta.addEventListener('submit', function (e) {
 
       e.preventDefault();
       var id = document.getElementById('id1').value;
-      var datosenviar={
-        id:id
+      var datosenviar = {
+        id: id
       }
 
       fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
@@ -302,14 +300,13 @@
         })//url de peticion de datos
         .then(respuesta => respuesta.json())//recibe los datos en formato json
         .then((datosrepuesta) => {
-          //window.location = 'ListaCurso.html'
           mostrarConfirmacion();
           console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
         })
         .catch(console.log)//muestra errores
     })
 
-   
+
 
     cargarDatos();
 
