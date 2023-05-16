@@ -25,7 +25,8 @@
 
 
     <div class="table-responsive">
-      <table class="table table-primary table-striped table-hover table-borderless table-primary align-middle caption-top">
+      <table
+        class="table table-primary table-striped table-hover table-borderless table-primary align-middle caption-top">
         <thead class="table-light">
           <caption>
             <h2 class="text-center">Lista de Grupos</h2>
@@ -114,7 +115,8 @@
           <div class="modal-body justify-content-center">
             <form id="eliminarAlerta">
               <div class="mb-3 text-center">
-                <input type="text" id="id1" name="id1" ; class="form-control border-0"><br>
+                <label for="" class="form-label">Curso</label>
+                <input type="text" id="id1" name="id1" ; class="form-control border-0 text-center"><br>
               </div>
               <div class="mb-3 ">
                 <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -138,6 +140,21 @@
           </div>
           <div class="modal-body justify-content-center">
             Accion Realizada correctamente
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción
           </div>
         </div>
       </div>
@@ -176,6 +193,8 @@
     const myModal2 = new bootstrap.Modal(document.getElementById('modalId2'))
     //este modal enseña una confirmación en general
     const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
 
 
 
@@ -221,6 +240,9 @@
     function mostrarAlerta(id) {
       document.getElementById('id1').value = id;
       myModal2.show();
+    }
+    function mostrarError() {
+      myModal4.show();
     }
 
     function mostrarConfirmacion() {
@@ -279,7 +301,7 @@
           .catch(console.log)//muestra errores
       } else {
 
-        alert("No se pudo editar");
+        mostrarError();
       }
 
 
