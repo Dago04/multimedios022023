@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Listar Datos</title>
+  <title>Lista Estudiantes</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -26,7 +26,7 @@
       <table class="table table-primary  table-striped table-hover table-borderless  align-middle caption-top">
         <thead class="table-light">
           <caption>
-
+            <h2 class="text-center"> Lista Estudiantes</h2>
           </caption>
           <tr>
             <th>Id</th>
@@ -169,6 +169,60 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="modalId2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="modalTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Está seguro de eliminar el siguiente estudiante?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            <form id="eliminarAlerta">
+              <div class="mb-3 text-center">
+                <label for="" class="form-label">Estudiante</label>
+                <input type="text" id="id1" name="id1" ; class="form-control border-0 text-center"><br>
+              </div>
+              <div class="mb-3 ">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaEstudiante.html'" type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            Accion Realizada correctamente
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="errorTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Error!</h5>
+          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body justify-content-center">
+          No se pudo realizar la acción, no puede dejar campos en blanco.
+        </div>
+      </div>
+    </div>
+  </div>
   </main>
 
   <footer>
@@ -197,9 +251,9 @@
 
     //este modal enseña los datos del grupo
     const myModal = new bootstrap.Modal(document.getElementById("modalId"));
-    //const myModal2 = new bootstrap.Modal(document.getElementById('modalId2'))
-    //const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
-    //const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+    const myModal2 = new bootstrap.Modal(document.getElementById('modalId2'))
+    const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
 
 
     function mostrar(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento,
@@ -220,7 +274,18 @@
       document.getElementById('usuario').value = usuario;
 
       myModal.show();
-
+    }
+    function mostrarConfirmacion() {
+      myModal.hide();
+      myModal2.hide();
+      myModal3.show();
+    }
+    function mostrarAlerta(id) {
+      document.getElementById('id1').value = id;
+      myModal2.show();
+    }
+    function mostrarError() {
+      myModal4.show();
     }
 
     formulario.addEventListener('submit', function (e) {
@@ -231,38 +296,38 @@
       var correoelectronico = document.getElementById('correoelectronico').value;
       var telefono = document.getElementById('telefono').value;
       var telefonocelular = document.getElementById('telefonocelular').value;
-      var fechanacimiento=document.getElementById('fechanacimiento').value;
-      var sexo= document.getElementById('sexo').value;
-      var direccion= document.getElementById('direccion').value;
+      var fechanacimiento = document.getElementById('fechanacimiento').value;
+      var sexo = document.getElementById('sexo').value;
+      var direccion = document.getElementById('direccion').value;
       var nombre = document.getElementById('nombre').value;
-      var apellidopaterno=document.getElementById('apellidopaterno').value;
-      var apellidomaterno=document.getElementById('apellidomaterno').value;
-      var nacionalidad=document.getElementById('nacionalidad').value;
-      var idCarreras= document.getElementById('idCarreras').value;
-      var usuario=document.getElementById('usuario').value;
-     
+      var apellidopaterno = document.getElementById('apellidopaterno').value;
+      var apellidomaterno = document.getElementById('apellidomaterno').value;
+      var nacionalidad = document.getElementById('nacionalidad').value;
+      var idCarreras = document.getElementById('idCarreras').value;
+      var usuario = document.getElementById('usuario').value;
+
 
 
 
       var datosenviar = {
-        id:id,
-        cedula:cedula,
-        correoelectronico:correoelectronico,
-        telefono:telefono,
-        telefonocelular:telefonocelular,
-        fechanacimiento:fechanacimiento,
-        sexo:sexo,
-        direccion:direccion,
-        nombre:nombre,
-        apellidopaterno:apellidopaterno,
-        apellidomaterno:apellidomaterno,
-        nacionalidad:nacionalidad,
-        idCarreras:idCarreras,
-        usuario:usuario,
+        id: id,
+        cedula: cedula,
+        correoelectronico: correoelectronico,
+        telefono: telefono,
+        telefonocelular: telefonocelular,
+        fechanacimiento: fechanacimiento,
+        sexo: sexo,
+        direccion: direccion,
+        nombre: nombre,
+        apellidopaterno: apellidopaterno,
+        apellidomaterno: apellidomaterno,
+        nacionalidad: nacionalidad,
+        idCarreras: idCarreras,
+        usuario: usuario,
       }
-      if (id != " " && cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != "" 
-      && sexo != "" && direccion != "" && nombre != "" && apellidopaterno!= "" && apellidomaterno != "" 
-      && nacionalidad != ""   && idCarreras != ""  && usuario != "")  {
+      if (id != " " && cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != ""
+        && sexo != "" && direccion != "" && nombre != "" && apellidopaterno != "" && apellidomaterno != ""
+        && nacionalidad != "" && idCarreras != "" && usuario != "") {
 
 
         fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarEstudiantes.php",
@@ -272,18 +337,39 @@
           })//url de peticion de datos
           .then(respuesta => respuesta.json())//recibe los datos en formato json
           .then((datosrepuesta) => {
-            
+            mostrarConfirmacion();
             console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
 
           })
 
           .catch(console.log)//muestra errores
       } else {
-        alert('mjm');
-       
+        mostrarError();
+
       }
 
 
+    })
+
+    eliminarAlerta.addEventListener('submit', function (e) {
+
+      e.preventDefault();
+      var id = document.getElementById('id1').value;
+      var datosenviar = {
+        id: id
+      }
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarEstudiantes.php",
+        {
+          method: "POST",
+          body: JSON.stringify(datosenviar)
+        })//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrepuesta) => {
+          mostrarConfirmacion();
+          console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+        })
+        .catch(console.log)//muestra errores
     })
 
     function cargarDatos() {
@@ -322,7 +408,7 @@
                             <td>${valor.idCarreras}</td>
                             <td>${valor.usuario}</td>
                             <td>
-                              <button type="button" onclick="" class="btn btn-danger">Borrar</button>
+                              <button type="button" onclick="mostrarAlerta('${valor.id}')" class="btn btn-danger">Borrar</button>
                               
                               <button type="button" onclick="mostrar('${valor.id}','${valor.cedula}','${valor.correoelectronico}'
                               ,'${valor.telefono}','${valor.telefonocelular}','${valor.fechanacimiento}'

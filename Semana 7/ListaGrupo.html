@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Listar Datos</title>
+  <title>Lista Grupo</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -22,8 +22,7 @@
 
   <main>
     <div class="table-responsive">
-      <table
-        class="table table-primary table-striped table-hover table-borderless  align-middle caption-top">
+      <table class="table table-primary table-striped table-hover table-borderless  align-middle caption-top">
         <thead class="table-light">
           <caption>
             <h2 class="text-center">Lista de Grupos</h2>
@@ -109,21 +108,20 @@
       </div>
     </div>
 
-    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-    role="dialog" aria-labelledby="errorTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitleId">Error!</h5>
-          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Close"></button>
-        </div>
-        <div class="modal-body justify-content-center">
-          No se pudo realizar la acción
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
   </main>
@@ -196,7 +194,7 @@
       document.getElementById('id1').value = id;
       myModal2.show();
     }
-    function mostrarError(){
+    function mostrarError() {
       myModal4.show();
     }
     function mostrar(id, nombre) {
@@ -241,7 +239,7 @@
           .catch(console.log)//muestra errores
       } else {
 
-       mostrarError();
+        mostrarError();
       }
 
 
@@ -262,7 +260,7 @@
         })//url de peticion de datos
         .then(respuesta => respuesta.json())//recibe los datos en formato json
         .then((datosrepuesta) => {
-         mostrarConfirmacion();
+          mostrarConfirmacion();
           console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
         })
         .catch(console.log)//muestra errores
