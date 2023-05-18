@@ -21,52 +21,84 @@
     <div id="navbarID"></div>
   </header>
 
- 
-    <main>
-      <div class="container-fluid">
-        <form id="formulario">
-          <div class="mb-3">
-            <label for="" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
-              placeholder="Ingresa el nombre del curso" />
-            <small id="helpId" class="form-text text-muted">Nomber aca</small>
+
+  <main>
+    <div class="container-fluid">
+      <form id="formulario">
+        <div class="mb-3">
+          <label for="" class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+            placeholder="Ingresa el nombre del curso" />
+          <small id="helpId" class="form-text text-muted">Nomber aca</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
+            placeholder="Ingresa ela descripcion del curso" />
+          <small id="helpId" class="form-text text-muted">Descripcion aca</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Tiempo</label>
+          <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
+            placeholder="Ingresa el tiempo del curso" />
+          <small id="helpId" class="form-text text-muted">Tiempo aca</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label">Usuario</label>
+          <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
+            placeholder="Ingresa el tiempo del curso" />
+          <small id="helpId" class="form-text text-muted">Usuario aca</small>
+        </div>
+
+        <div class="mb-3">
+          <button type="reset" class="btn btn-danger">Limpiar</button>
+          <button type="submit" class="btn btn-primary">
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaCurso.html'" type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
           </div>
-  
-          <div class="mb-3">
-            <label for="" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
-              placeholder="Ingresa ela descripcion del curso" />
-            <small id="helpId" class="form-text text-muted">Descripcion aca</small>
+          <div class="modal-body justify-content-center">
+            Registro realizado correctamente
           </div>
-  
-          <div class="mb-3">
-            <label for="" class="form-label">Tiempo</label>
-            <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
-              placeholder="Ingresa el tiempo del curso" />
-            <small id="helpId" class="form-text text-muted">Tiempo aca</small>
-          </div>
-  
-          <div class="mb-3">
-            <label for="" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
-              placeholder="Ingresa el tiempo del curso" />
-            <small id="helpId" class="form-text text-muted">Usuario aca</small>
-          </div>
-  
-          <div class="mb-3">
-            <button type="reset" class="btn btn-danger">Limpiar</button>
-            <button type="submit" onclick="captura()" class="btn btn-primary">
-              Guardar
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
-     
-    </main>
-    <footer>
-      <div id="footerID"></div>
-    </footer>
-  
+    </div>
+
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <footer>
+    <div id="footerID"></div>
+  </footer>
+
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -81,66 +113,55 @@
   <script src="footer.js"></script>
 
   <script>
-    function captura() {
-      var formulario = document.getElementById("formulario");
+    var formulario = document.getElementById("formulario");
+    const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
+    function mostrarError() {
+      myModal4.show();
+    }
+
+    function mostrarConfirmacion() {
+    
+      myModal3.show();
+    }
+
+    formulario.addEventListener('submit', function (e) {
+
+      e.preventDefault();
       var nombre = document.getElementById("nombre").value;
       var descripcion = document.getElementById("descripcion").value;
       var tiempo = document.getElementById("tiempo").value;
       var usuario = document.getElementById("usuario").value;
       var datosenviar = {
-        "nombre": nombre,
-        "descripcion": descripcion,
-        "tiempo": tiempo,
-        "usuario": usuario,
-      };
-      if (nombre == "") {
-        alert("El nombre es obligatorio digitarlo");
-        document.getElementById("nombre").focus();
+        nombre: nombre,
+        descripcion: descripcion,
+        tiempo: tiempo,
+        usuario: usuario,
       }
-      if (descripcion == "") {
-        alert("La descripcion es obligatorio digitarla");
-        document.getElementById("descripcion").focus();
-      }
-      if (tiempo == "") {
-        alert("El tiempo es obligatorio digitarlo");
-        document.getElementById("tiempo").focus();
-      }
-      if (usuario == "") {
-        alert("El usuario es obligatorio digitarlo");
-        document.getElementById("usuario").focus();
-      }
+      if (nombre != "" && descripcion != "" && tiempo != "" && usuario != "") {
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php",
+          {
+            method: "POST",
+            body: JSON.stringify(datosenviar)
+          })//url de peticion de datos
+          .then(respuesta => respuesta.json())//recibe los datos en formato json
+          .then((datosrepuesta) => {
 
-      if (
-        nombre != "" &&
-        descripcion != "" &&
-        tiempo != "" &&
-        usuario != ""
-      ) {
-        //console.log(nombre + " " + descripcion + " " + tiempo + " " + usuario);
-        document.getElementById("nombre").value = "";
-        document.getElementById("descripcion").value = "";
-        document.getElementById("tiempo").value = "";
-        document.getElementById("usuario").value = "";
+            mostrarConfirmacion();
 
-        formulario.addEventListener("submit", function (e) {
-          e.preventDefault();
-        });
+            console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
 
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php", {
-          method: "POST",
-          body: JSON.stringify(datosenviar),
-        })
-          //url de peticion  de datos
-          .then((respuesta) => respuesta.json()) //recibe los datos en formato json
-          .then((datosrespuesta) => {
-            console.log("Datos", datosrespuesta); //muesta el resultado de la petición
           })
 
-          .catch(console.log); //muestra
+          .catch(console.log)//muestra errores
       } else {
-        alert("No se pudo agregar el curso");
-      } ////cierre
-    }
+        mostrarError();
+      }
+    })
+
+
+
   </script>
 </body>
 
