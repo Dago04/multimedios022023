@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Listar Datos</title>
+  <title>Lista Profesores</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,47 +15,217 @@
 </head>
 
 <body>
-  
-    <header>
-      <div id="navbarID"></div>
-    </header>
 
-    <main>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-borderless table-primary align-middle">
-          <thead class="table-light">
-            <caption>
-             
-            </caption>
-            <tr>
-              <th>Id</th>
-              <th>Cedula</th>
-              <th>CorreoElectronico</th>
-              <th>Telefono</th>
-              <th>TelefonoCelular</th>
-              <th>FechaNacimiento</th>
-              <th>Sexo</th>
-              <th>Direccion</th>
-              <th>Nombre</th>
-              <th>ApellidoPaterno</th>
-              <th>ApellidoMaterno</th>
-              <th>IdCarreras</th>
-              <th>Usuario</th>
-              <th>Nacionalidad</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider" id="resultados">
-            
-          </tbody>
-          <tfoot></tfoot>
-        </table>
+  <header>
+    <div id="navbarID"></div>
+  </header>
+
+  <main>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-borderless table-primary align-middle caption-top">
+        <thead class="table-light">
+          <caption>
+            <h2 class="text-center">Lista de profesores</h2>
+          </caption>
+          <tr>
+            <th>Id</th>
+            <th>Cedula</th>
+            <th>CorreoElectronico</th>
+            <th>Telefono</th>
+            <th>TelefonoCelular</th>
+            <th>FechaNacimiento</th>
+            <th>Sexo</th>
+            <th>Direccion</th>
+            <th>Nombre</th>
+            <th>ApellidoPaterno</th>
+            <th>ApellidoMaterno</th>
+            <th>IdCarreras</th>
+            <th>Usuario</th>
+            <th>Nacionalidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider" id="resultados">
+
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="modalTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Modificar Profesor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formulario">
+              <div class="mb-3">
+                <input type="hidden" id="id" name="id">
+                <input type="hidden" id="cedula" name="cedula">
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Correo Electronico</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="correoelectronico"
+                  id="correoelectronico" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Telefono</label>
+                <input class="form-control form-control-sm" type="number" class="form-control" name="telefono"
+                  id="telefono" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Telefono Celular</label>
+                <input class="form-control form-control-sm" type="number" class="form-control" name="telefonocelular"
+                  id="telefonocelular" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Fecha de nacimiento</label>
+                <input class="form-control form-control-sm" type="date" class="form-control" name="fechanacimiento"
+                  id="fechanacimiento" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Sexo</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="sexo" id="sexo"
+                  aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Direccion</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="direccion"
+                  id="direccion" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="nombre" id="nombre"
+                  aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Apellido Paterno</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="apellidopaterno"
+                  id="apellidopaterno" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Apellido Materno</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="apellidomaterno"
+                  id="apellidomaterno" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">id Carrera</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="idCarreras"
+                  id="idCarreras" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Usuario</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="usuario" id="usuario"
+                  aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Nacionalidad</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="nacionalidad"
+                  id="nacionalidad" aria-describedby="helpId" placeholder="" />
+
+              </div>
+
+              <div class="mb-3">
+
+                <button type="reset" class="btn btn-danger">Reiniciar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
 
-    <footer>
-      <div id="footerID"></div>
-    </footer>
-  
+    <div class="modal fade" id="modalId2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="modalTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Está seguro de eliminar el siguiente profesor?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            <form id="eliminarAlerta">
+              <div class="mb-3 text-center">
+                <label for="" class="form-label">Profesor</label>
+                <input type="text" id="id1" name="id1" ; class="form-control border-0 text-center"><br>
+              </div>
+              <div class="mb-3 ">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaProfesores.html'" type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            Accion Realizada correctamente
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <div id="footerID"></div>
+  </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -69,10 +239,114 @@
   <script src="footer.js"></script>
   <script>
     //declaracion de variables u objetos
-
     var contenidoTablaResultado = document.querySelector("#resultados");
+    var formulario = document.getElementById('formulario');
+    var eliminarAlerta = document.getElementById('eliminarAlerta')
 
-    // {"id":"377","nombre":"hola leo","descripcion":"sdsd","tiempo":"asasa"}
+    //este modal enseña los datos del grupo
+    const myModal = new bootstrap.Modal(document.getElementById("modalId"));
+    const myModal2 = new bootstrap.Modal(document.getElementById('modalId2'))
+    const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
+    function mostrar(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento,
+      sexo, direccion, nombre, apellidopaterno, apellidomaterno, idCarreras, usuario, nacionalidad) {
+      document.getElementById('id').value = id;
+      document.getElementById('cedula').value = cedula;
+      document.getElementById('correoelectronico').value = correoelectronico;
+      document.getElementById('telefono').value = telefono;
+      document.getElementById('telefonocelular').value = telefonocelular;
+      document.getElementById('fechanacimiento').value = fechanacimiento;
+      document.getElementById('sexo').value = sexo;
+      document.getElementById('direccion').value = direccion;
+      document.getElementById('nombre').value = nombre;
+      document.getElementById('apellidopaterno').value = apellidopaterno;
+      document.getElementById('apellidomaterno').value = apellidomaterno;
+      document.getElementById('nacionalidad').value = nacionalidad;
+      document.getElementById('idCarreras').value = idCarreras;
+      document.getElementById('usuario').value = usuario;
+
+      myModal.show();
+    }
+
+    function mostrarConfirmacion() {
+      myModal.hide();
+      myModal2.hide();
+      myModal3.show();
+    }
+    function mostrarAlerta(id) {
+      document.getElementById('id1').value = id;
+      myModal2.show();
+    }
+    function mostrarError() {
+      myModal4.show();
+    }
+
+
+    formulario.addEventListener('submit', function (e) {
+
+      e.preventDefault();
+      var id = document.getElementById('id').value;
+      var cedula = document.getElementById('cedula').value;
+      var correoelectronico = document.getElementById('correoelectronico').value;
+      var telefono = document.getElementById('telefono').value;
+      var telefonocelular = document.getElementById('telefonocelular').value;
+      var fechanacimiento = document.getElementById('fechanacimiento').value;
+      var sexo = document.getElementById('sexo').value;
+      var direccion = document.getElementById('direccion').value;
+      var nombre = document.getElementById('nombre').value;
+      var apellidopaterno = document.getElementById('apellidopaterno').value;
+      var apellidomaterno = document.getElementById('apellidomaterno').value;
+      var nacionalidad = document.getElementById('nacionalidad').value;
+      var idCarreras = document.getElementById('idCarreras').value;
+      var usuario = document.getElementById('usuario').value;
+
+
+
+
+      var datosenviar = {
+        id: id,
+        cedula: cedula,
+        correoelectronico: correoelectronico,
+        telefono: telefono,
+        telefonocelular: telefonocelular,
+        fechanacimiento: fechanacimiento,
+        sexo: sexo,
+        direccion: direccion,
+        nombre: nombre,
+        apellidopaterno: apellidopaterno,
+        apellidomaterno: apellidomaterno,
+        idCarreras: idCarreras,
+        usuario: usuario,
+        nacionalidad: nacionalidad
+      }
+      if (id != " " && cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != ""
+        && sexo != "" && direccion != "" && nombre != "" && apellidopaterno != "" && apellidomaterno != ""
+        && nacionalidad != "" && idCarreras != "" && usuario != "") {
+
+
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarProfesores.php",
+          {
+            method: "POST",
+            body: JSON.stringify(datosenviar)
+          })//url de peticion de datos
+          .then(respuesta => respuesta.json())//recibe los datos en formato json
+          .then((datosrepuesta) => {
+            mostrarConfirmacion();
+            console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+
+          })
+
+          .catch(console.log)//muestra errores
+      } else {
+        mostrarError();
+
+      }
+
+
+    })
+
+
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php") //url de peticion  de datos
         .then((respuesta) => respuesta.json()) //recibe los datos en formato json
@@ -93,7 +367,7 @@
         console.log("valor: ", valor);
         contenidoTablaResultado.innerHTML += `
            
-                         <tr class="table-primary" >
+                         <tr class="table-dark" >
                             <td scope="row">${valor.id}</td>
                             <td>${valor.cedula}</td>
                             <td>${valor.correoelectronico}</td>
@@ -108,6 +382,15 @@
                             <td>${valor.idCarreras}</td>
                             <td>${valor.usuario}</td>
                             <td>${valor.nacionalidad}</td>
+                            <td>
+                              <button type="button" onclick="mostrarAlerta('${valor.id}')" class="btn btn-danger">Borrar</button>
+                              
+                              <button type="button" onclick="mostrar('${valor.id}','${valor.cedula}','${valor.correoelectronico}'
+                              ,'${valor.telefono}','${valor.telefonocelular}','${valor.fechanacimiento}'
+                              ,'${valor.sexo}','${valor.direccion}','${valor.nombre}','${valor.apellidopaterno}'
+                              ,'${valor.apellidomaterno}','${valor.idCarreras}','${valor.usuario}','${valor.nacionalidad}')"
+                               class="btn btn-primary">Editar</button>
+                            </td>
                         </tr>`;
       }
     }
