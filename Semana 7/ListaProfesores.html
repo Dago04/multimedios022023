@@ -346,6 +346,28 @@
 
     })
 
+    eliminarAlerta.addEventListener('submit', function (e) {
+
+      e.preventDefault();
+      var id = document.getElementById('id1').value;
+      var datosenviar = {
+        id: id
+      }
+
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarProfesores.php",
+        {
+          method: "POST",
+          body: JSON.stringify(datosenviar)
+        })//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrepuesta) => {
+          mostrarConfirmacion();
+          console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
+        })
+        .catch(console.log)//muestra errores
+    })
+
+
 
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php") //url de peticion  de datos
