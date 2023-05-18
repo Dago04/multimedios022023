@@ -120,7 +120,7 @@ contenidoMenuResultado.innerHTML += `<nav class="navbar navbar-expand-md navbar-
 
        <li class="nav-item col-6 col-md auto p-3">
     
-         <h5 class="text-warning"> Contactame</h5>
+         
       </li>
       <li class="nav-item col-6 col-md auto p-3">
         <i class="bi bi-github"></i>
