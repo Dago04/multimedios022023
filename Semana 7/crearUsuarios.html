@@ -20,45 +20,83 @@
   <header>
     <div id="navbarID"></div>
   </header>
-  
-    <main>
-      <div class="container-fluid">
-        <form id="formulario">
-          <div class="mb-3">
+
+  <main>
+    <div class="container">
+      <h5 class="mt-3">Registro de Usuario</h1>
+        <form class="mt-3 needs-validation " id="formulario" novalidate>
+          <div class="mb-3 col-md-6">
             <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+            <input type="text" class="form-control" name="name" id="name" required aria-describedby="helpId"
               placeholder="Digite su nombre" />
-            <small id="helpId" class="form-text text-muted"></small>
+            <div class="invalid-feedback">
+              Es necesario poner el nombre
+            </div>
+
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-3 col-md-6">
             <label for="" class="form-label">Email</label>
-            <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId"
+            <input type="text" class="form-control" name="email" id="email" required aria-describedby="helpId"
               placeholder="correo@gmail.com" />
-            <small id="helpId" class="form-text text-muted"></small>
+            <div class="invalid-feedback">
+              Es necesario poner el nombre
+            </div>
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-3 col-md-6">
             <label for="" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="password" aria-describedby="helpId"
+            <input type="password" class="form-control" name="password" id="password" required aria-describedby="helpId"
               placeholder="digite su contraseña" />
-            <small id="helpId" class="form-text text-muted"></small>
+            <div class="invalid-feedback">
+              Es necesario poner el nombre
+            </div>
+
           </div>
-  
+
           <div class="mb-3">
             <button type="reset" class="btn btn-danger">Limpiar</button>
-            <button type="submit" onclick="captura()" class="btn btn-primary">
-              Guardar
-            </button>
+            <button type="submit" onclick="" class="btn btn-primary">Registrar</button>
           </div>
         </form>
+    </div>
+
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaUsuarios.html'" type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            Registro realizado correctamente
+          </div>
+        </div>
       </div>
-      
-    </main>
-    <footer>
-       <div id="footerID"></div>
-    </footer>
-  
+    </div>
+
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div id="footerID"></div>
+  </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -72,8 +110,45 @@
   <script src="footer.js"></script>
 
   <script>
-    function captura() {
-      var formulario = document.getElementById("formulario");
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+
+  <script>
+    var formulario = document.getElementById("formulario");
+    const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
+    
+    function mostrarError() {
+      myModal4.show();
+    }
+
+    function mostrarConfirmacion() {
+
+      myModal3.show();
+    }
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
@@ -83,23 +158,7 @@
         "password": password,
       };
 
-      if (name == "") {
-        alert("El nombre es obligatorio digitarlo");
-        document.getElementById("name").focus();
-      }
-      if (email == "") {
-        alert("El email es obligatorio digitarlo");
-        document.getElementById("email").focus();
-      }
-      if (password == "") {
-        alert("la contraseña es obligatorio digitarlo");
-        document.getElementById("password").focus();
-      }
-
       if (name != "" && email != "" && password != "") {
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
 
         formulario.addEventListener("submit", function (e) {
           e.preventDefault();
@@ -112,12 +171,21 @@
           //url de peticion  de datos
           .then((respuesta) => respuesta.json()) //recibe los datos en formato json
           .then((datosrespuesta) => {
+            mostrarConfirmacion();
             console.log("Datos", datosrespuesta); //muesta el resultado de la petición
           })
 
           .catch(console.log); //muestra
+      }else{
+        mostrarError();
       }
-    }
+    });
+
+
+
+
+
+
   </script>
 </body>
 
