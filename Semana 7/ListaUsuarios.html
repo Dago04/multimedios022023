@@ -194,14 +194,12 @@
           })//url de peticion de datos
           .then(respuesta => respuesta.json())//recibe los datos en formato json
           .then((datosrepuesta) => {
-            window.location = 'ListaUsuarios.html'
-            alert("Se modificó correctamente");
             console.log('Datos', datosrepuesta)//Muestra el resultado de la peticion
           })
           .catch(console.log)//muestra errores
       } else {
 
-        alert("No se pudo editar");
+        
       }
 
 
