@@ -33,7 +33,7 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody class="table-group-divider" id="resultados">
+        <tbody class="table-group-divider" id="resultadosGrupos">
 
         </tbody>
         <tfoot></tfoot>
@@ -145,7 +145,7 @@
   <script>
     //declaracion de variables u objetos
 
-    var contenidoTablaResultado = document.querySelector("#resultados");
+    var contenidoTablaResultado = document.querySelector("#resultado");
     var formulario = document.getElementById('formulario');
     var eliminarAlerta = document.getElementById('eliminarAlerta')
 
@@ -156,7 +156,7 @@
     const myModal4 = new bootstrap.Modal(document.getElementById('error'))
 
 
-    // {"id":"377","nombre":"hola leo","descripcion":"sdsd","tiempo":"asasa"}
+    
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php") //url de peticion  de datos
         .then((respuesta) => respuesta.json()) //recibe los datos en formato json
