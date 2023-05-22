@@ -125,12 +125,41 @@
 
           <div class="mb-3">
             <button type="reset" class="btn btn-danger">Limpiar</button>
-            <button type="submit" onclick="captura()" class="btn btn-primary">
-              Guardar
-            </button>
+            <button type="submit" o class="btn btn-primary">Registrar</button>
           </div>
         </form>
     </div>
+
+    <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+          <button onclick="window.location='ListaEstudiante.html'" type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body justify-content-center">
+          Registro realizado correctamente
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="errorTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitleId">Error!</h5>
+          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body justify-content-center">
+          No se pudo realizar la acción, no puede dejar campos en blanco.
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   </main>
@@ -152,14 +181,49 @@
   <script src="footer.js"></script>
 
   <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
 
-   
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
 
-    function captura() {
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+
+  <script>
+
+
+    var formulario = document.getElementById("formulario");
+    const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
+    const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
+    function mostrarError() {
+      myModal4.show();
+    }
+
+    function mostrarConfirmacion() {
+
+      myModal3.show();
+    }
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+
       var formulario = document.getElementById("formulario");
       var cedula = document.getElementById("cedula").value;
-      var correoelectronico =
-        document.getElementById("correoelectronico").value;
+      var correoelectronico = document.getElementById("correoelectronico").value;
       var telefono = document.getElementById("telefono").value;
       var telefonocelular = document.getElementById("telefonocelular").value;
       var fechanacimiento = document.getElementById("fechanacimiento").value;
@@ -185,109 +249,13 @@
         "apellidomaterno": apellidomaterno,
         "nacionalidad": nacionalidad,
         "idCarreras": idCarreras,
-        "usuario": usuario,
+        "usuario": usuario
+
       };
-      if (cedula == "") {
-        alert("la cedula es obligatoria digitarlo");
-        document.getElementById("cedula").focus();
-      }
-      if (correoelectronico == "") {
-        alert("El correo electronico es obligatorio");
-        document.getElementById("correoelectronico").focus();
-      }
-      if (telefono == "") {
-        alert("El telefono es obligatorio");
-        document.getElementById("telefono").focus();
-      }
-      if (telefonocelular == "") {
-        alert("El telefono celular es obligatorio");
-        document.getElementById("telefonocelular").focus();
-      }
-      if (fechanacimiento == "") {
-        alert("La fecha de nacimiento es obligatorio");
-        document.getElementById("fechanacimiento").focus();
-      }
-      if (sexo == "") {
-        alert("El sexo es obligatorio");
-        document.getElementById("sexo").focus();
-      }
-      if (direccion == "") {
-        alert("la direccion es obligatorio");
-        document.getElementById("direccion").focus();
-      }
-      if (nombre == "") {
-        alert("El nombre es obligatorio");
-        document.getElementById("nombre").focus();
-      }
-      if (apellidopaterno == "") {
-        alert("El apellido paterno es obligatorio");
-        document.getElementById("apellidopaterno").focus();
-      }
 
-      if (apellidomaterno == "") {
-        alert("El apellido materno es obligatorio");
-        document.getElementById("apellidomaterno").focus();
-      }
 
-      if (nacionalidad == "") {
-        alert("la nacionalidad es obligatorio");
-        document.getElementById("nacionalidad").focus();
-      }
-
-      if (idCarreras == "") {
-        alert("El id de la carrera es obligatorio");
-        document.getElementById("idCarreras").focus();
-      }
-
-      if (usuario == "") {
-        alert("el usuario es obligatorio");
-        document.getElementById("usuario").focus();
-      }
-
-      if (
-        cedula != "" &&
-        correoelectronico != "" &&
-        telefono != "" &&
-        telefonocelular != "" &&
-        fechanacimiento != "" &&
-        sexo != "" &&
-        direccion != "" &&
-        nombre != "" &&
-        apellidopaterno != "" &&
-        apellidomaterno != "" &&
-        nacionalidad != "" &&
-        idCarreras != "" &&
-        usuario != ""
-      ) {
-        var cedula = (document.getElementById("cedula").value = "");
-        var correoelectronico = (document.getElementById(
-          "correoelectronico"
-        ).value = "");
-        var telefono = (document.getElementById("telefono").value = "");
-        var telefonocelular = (document.getElementById(
-          "telefonocelular"
-        ).value = "");
-        var fechanacimiento = (document.getElementById(
-          "fechanacimiento"
-        ).value = "");
-        var sexo = (document.getElementById("sexo").value = "");
-        var direccion = (document.getElementById("direccion").value = "");
-        var nombre = (document.getElementById("nombre").value = "");
-        var apellidopaterno = (document.getElementById(
-          "apellidopaterno"
-        ).value = "");
-        var apellidomaterno = (document.getElementById(
-          "apellidomaterno"
-        ).value = "");
-        var nacionalidad = (document.getElementById("nacionalidad").value =
-          "");
-        var idCarreras = (document.getElementById("idCarreras").value = "");
-        var usuario = (document.getElementById("usuario").value = "");
-
-        formulario.addEventListener("submit", function (e) {
-          e.preventDefault();
-        });
-
+      if (cedula != "" && correoelectronico != "" && telefono != "" && telefonocelular != "" && fechanacimiento != "" &&
+        sexo != "" && direccion != "" && nombre != "" && apellidopaterno != "" && apellidomaterno != "" && nacionalidad != "" && idCarreras != "" && usuario != "") {
         fetch(
           "https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php",
           {
@@ -298,14 +266,27 @@
           //url de peticion  de datos
           .then((respuesta) => respuesta.json()) //recibe los datos en formato json
           .then((datosrespuesta) => {
+            mostrarConfirmacion();
             console.log("Datos", datosrespuesta); //muesta el resultado de la petición
           })
 
           .catch(console.log); //muestra
       } else {
-        alert("no se pudo registrar el estudiante");
+        mostrarError();
       }
-    } //cierre funcion
+    });
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
 </body>
 
