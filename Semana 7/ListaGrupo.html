@@ -107,7 +107,6 @@
         </div>
       </div>
     </div>
-
     <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
       aria-labelledby="errorTitulo" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
@@ -156,7 +155,7 @@
     const myModal4 = new bootstrap.Modal(document.getElementById('error'))
 
 
-    
+
     function cargarDatos() {
       fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php") //url de peticion  de datos
         .then((respuesta) => respuesta.json()) //recibe los datos en formato json
