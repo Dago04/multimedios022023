@@ -31,9 +31,12 @@
             table-hover	
             table-borderless
             table-primary
-            align-middle">
+            align-middle
+            caption-top">
         <thead class="table-light">
-          <caption></caption>
+          <caption>
+            <h2 class="text-center">Lista de Usuarios</h2>
+          </caption>
           <tr>
             <th>Id</th>
             <th>Name</th>
@@ -178,7 +181,7 @@
         console.log('valor: ', valor);
         contenidoTablaResultado.innerHTML += `
            
-                         <tr class="table-primary" >
+                         <tr class="table-primary table-striped" >
                             <td scope="row">${valor.id}</td>
                             <td>${valor.name}</td>
                             <td>${valor.email}</td>
