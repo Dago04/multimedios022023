@@ -60,16 +60,7 @@ contenidoMenuResultado.innerHTML += `<nav class="navbar navbar-expand-md navbar-
               >Ver Usuario</a
             >
           </li>
-          <li>
-            <a class="dropdown-item" href="ListaEstudiantesGrupo.html"
-              >Ver Estudiantes por grupo</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="ListaProfesoresGrupo.html"
-              >Ver Profesores por grupo</a
-            >
-          </li>
+        
         </ul>
       </li>
       <li class="nav-item dropdown">
