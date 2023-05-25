@@ -34,7 +34,8 @@
           <div class="mb-3">
             <label for="" class="form-label">Correo Electronico</label>
             <input class="form-control form-control-sm" type="email" class="form-control" name="correoelectronico"
-              id="correoelectronico" required aria-describedby="helpId" placeholder="Ingrese el correo electronico del estudiante" />
+              id="correoelectronico" required aria-describedby="helpId"
+              placeholder="Ingrese el correo electronico del estudiante" />
 
           </div>
 
@@ -48,14 +49,16 @@
           <div class="mb-3">
             <label for="" class="form-label">Telefono Celular</label>
             <input class="form-control form-control-sm" type="number" class="form-control" name="telefonocelular"
-              id="telefonocelular" required aria-describedby="helpId" placeholder="Ingrese el telefono celular del estudiante" />
+              id="telefonocelular" required aria-describedby="helpId"
+              placeholder="Ingrese el telefono celular del estudiante" />
 
           </div>
 
           <div class="mb-3">
             <label for="" class="form-label">Fecha de nacimiento</label>
             <input class="form-control form-control-sm" type="date" class="form-control" name="fechanacimiento"
-              id="fechanacimiento" required aria-describedby="helpId" placeholder="Ingrese la fecha de nacimiento del estudiante" />
+              id="fechanacimiento" required aria-describedby="helpId"
+              placeholder="Ingrese la fecha de nacimiento del estudiante" />
 
           </div>
 
@@ -83,35 +86,31 @@
           <div class="mb-3">
             <label for="" class="form-label">Apellido Paterno</label>
             <input class="form-control form-control-sm" type="text" class="form-control" name="apellidopaterno"
-              id="apellidopaterno" required aria-describedby="helpId" placeholder="Ingrese el apellido paterno del estudiante" />
+              id="apellidopaterno" required aria-describedby="helpId"
+              placeholder="Ingrese el apellido paterno del estudiante" />
 
           </div>
 
           <div class="mb-3">
             <label for="" class="form-label">Apellido Materno</label>
             <input class="form-control form-control-sm" type="text" class="form-control" name="apellidomaterno"
-              id="apellidomaterno" required aria-describedby="helpId" placeholder="Ingrese el apellido materno del estudiante" />
+              id="apellidomaterno" required aria-describedby="helpId"
+              placeholder="Ingrese el apellido materno del estudiante" />
 
           </div>
 
           <div class="mb-3">
             <label for="" class="form-label">Nacionalidad</label>
             <input class="form-control form-control-sm" type="text" class="form-control" name="nacionalidad"
-              id="nacionalidad" required aria-describedby="helpId" placeholder="Ingrese la nacionalidad del estudiante" />
+              id="nacionalidad" required aria-describedby="helpId"
+              placeholder="Ingrese la nacionalidad del estudiante" />
 
           </div>
 
           <div class="mb-3">
-            <label for="" class="form-label">iD Carrera</label>
-            <input class="form-control form-control-sm" type="text" class="form-control" name="idCarreras"
-              id="idCarreras" required aria-describedby="helpId" placeholder="Ingrese el grupo del estudiante" />
-
-          </div>
-
-          <div class="mb-3">
-            <label for="" class="form-label">Grupos</label>
-            <select class="form-select form-select-lg" name="listagrupo" id="listagrupo">
-
+            <label for="" class="form-label">Grupo</label>
+            <select class="form-select " name="Grupo" id="Grupo">
+              <option disabled selected value="">Seleccione uno</option>
             </select>
 
           </div>
@@ -131,35 +130,35 @@
     </div>
 
     <div class="modal fade" id="confirmacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-    role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-success custom-header ">
-          <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
-          <button onclick="window.location='ListaEstudiante.html'" type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Close"></button>
-        </div>
-        <div class="modal-body justify-content-center">
-          Registro realizado correctamente
+      role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-success custom-header ">
+            <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
+            <button onclick="window.location='ListaEstudiante.html'" type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            Registro realizado correctamente
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="errorTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-warning custom-header">
-          <h5 class="modal-title" id="modalTitleId">Error!</h5>
-          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body justify-content-center">
-          No se pudo realizar la acción, no puede dejar campos en blanco.
+    <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-warning custom-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
   </main>
@@ -204,10 +203,14 @@
 
   <script>
 
-
+    var cargarGrupos = document.querySelector('#Grupo');
     var formulario = document.getElementById("formulario");
     const myModal3 = new bootstrap.Modal(document.getElementById('confirmacion'))
     const myModal4 = new bootstrap.Modal(document.getElementById('error'))
+
+
+
+
 
     function mostrarError() {
       myModal4.show();
@@ -233,23 +236,23 @@
       var apellidopaterno = document.getElementById("apellidopaterno").value;
       var apellidomaterno = document.getElementById("apellidomaterno").value;
       var nacionalidad = document.getElementById("nacionalidad").value;
-      var idCarreras = document.getElementById("idCarreras").value;
+      var idCarreras = document.getElementById("selectGrupo").value;
       var usuario = document.getElementById("usuario").value;
 
       var datosenviar = {
-        "cedula": cedula,
-        "correoelectronico": correoelectronico,
-        "telefono": telefono,
-        "telefonocelular": telefonocelular,
-        "fechanacimiento": fechanacimiento,
-        "sexo": sexo,
-        "direccion": direccion,
-        "nombre": nombre,
-        "apellidopaterno": apellidopaterno,
-        "apellidomaterno": apellidomaterno,
-        "nacionalidad": nacionalidad,
-        "idCarreras": idCarreras,
-        "usuario": usuario
+        cedula: cedula,
+        correoelectronico: correoelectronico,
+        telefono: telefono,
+        telefonocelular: telefonocelular,
+        fechanacimiento: fechanacimiento,
+        sexo: sexo,
+        direccion: direccion,
+        nombre: nombre,
+        apellidopaterno: apellidopaterno,
+        apellidomaterno: apellidomaterno,
+        nacionalidad: nacionalidad,
+        idCarreras: idCarreras,
+        usuario: usuario
 
       };
 
@@ -276,13 +279,19 @@
       }
     });
 
+    function cargarGrupo() {
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrespuesta) => {
 
-
-
-
-
-
-
+          for (const valor of datosrespuesta.data) {
+            cargarGrupos.innerHTML += `
+                       <option value="${valor.id}">${valor.nombre}</option>`;
+          }
+        })
+        .catch(console.log)//muestra errores
+    }
+    cargarGrupo();
 
 
 
