@@ -62,30 +62,41 @@
               <div class="mb-3">
                 <input type="hidden" id="id" name="id">
                 <label for="" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
+                <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" required
                   placeholder="Ingresa el nombre del curso" />
-               
+                  <div class="invalid-feedback">
+                    Es necesario poner el nombre
+                  </div>
+
               </div>
 
               <div class="mb-3">
                 <label for="" class="form-label">Descripcion</label>
                 <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId"
-                  placeholder="Ingrese la descripcion del curso" />
-               
+                  required placeholder="Ingrese la descripcion del curso" />
+                  <div class="invalid-feedback">
+                    Es necesario poner la descripcion
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="" class="form-label">Tiempo</label>
                 <input type="text" class="form-control" name="tiempo" id="tiempo" aria-describedby="helpId"
-                  placeholder="Ingresa el tiempo del curso" />
-               
+                  required placeholder="Ingresa el tiempo del curso" />
+                  <div class="invalid-feedback">
+                    Es necesario poner el tiempo
+                  </div>
+
               </div>
 
               <div class="mb-3">
                 <label for="" class="form-label">Usuario</label>
                 <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId"
-                  placeholder="Ingresa el usuario del curso" />
-                
+                 required placeholder="Ingresa el usuario del curso" />
+                 <div class="invalid-feedback">
+                  Es necesario poner el usuario
+                </div>
+
               </div>
 
               <div class="mb-3">
@@ -133,7 +144,7 @@
       role="dialog" aria-labelledby="confirmacionTitulo" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
-          <div class="modal-header bg-success custom-header" >
+          <div class="modal-header bg-success custom-header">
             <h5 class="modal-title" id="modalTitleId">Confirmación</h5>
             <button onclick="window.location='ListaCurso.html'" type="button" class="btn-close" data-bs-dismiss="modal"
               aria-label="Close"></button>
@@ -146,19 +157,19 @@
     </div>
 
     <div class="modal fade" id="error" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="errorTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-warning custom-header">
-          <h5 class="modal-title" id="modalTitleId">Error!</h5>
-          <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body justify-content-center">
-          No se pudo realizar la acción, no puede dejar campos en blanco.
+      aria-labelledby="errorTitulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-warning custom-header">
+            <h5 class="modal-title" id="modalTitleId">Error!</h5>
+            <button onclick="" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center">
+            No se pudo realizar la acción, no puede dejar campos en blanco.
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 
     <!-- Optional: Place to the bottom of scripts -->
@@ -181,6 +192,27 @@
 
   <script src="menu.js"></script>
   <script src="footer.js"></script>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
 
 
   <script>

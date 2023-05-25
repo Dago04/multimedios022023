@@ -49,13 +49,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form class="mt-3 needs-validation" id="formulario">
+            <form class="mt-3 needs-validation" id="formulario" novalidate>
               <div class="mb-3">
                 <input type="hidden" id="id" name="id">
                 <label for="" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId"
-                  placeholder="Ingresa el nombre del curso" />
-                <small id="helpId" class="form-text text-muted"></small>
+                  required placeholder="Ingresa el nombre del curso" />
+                  <div class="invalid-feedback">
+                    Es necesario poner el nombre
+                  </div>
+                
               </div>
               <div class="mb-3">
                 <button type="reset" class="btn btn-danger">Reiniciar</button>
@@ -140,6 +143,28 @@
 
   <script src="menu.js"></script>
   <script src="footer.js"></script>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
 
   <script>
     //declaracion de variables u objetos
