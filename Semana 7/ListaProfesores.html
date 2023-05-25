@@ -150,12 +150,20 @@
               </div>
 
               <div class="mb-3">
-                <label for="" class="form-label">id Carrera</label>
-                <input class="form-control form-control-sm" type="text" class="form-control" name="idCarreras"
-                  id="idCarreras" aria-describedby="helpId" required placeholder="" />
+                <label for="" class="form-label">Nacionalidad</label>
+                <input class="form-control form-control-sm" type="text" class="form-control" name="nacionalidad"
+                  id="nacionalidad" aria-describedby="helpId" required placeholder="" />
                 <div class="invalid-feedback">
-                  Es necesario poner el grupo
+                  Es necesario poner la nacionalidad
                 </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="" class="form-label">Grupo</label>
+                <select class="form-select " name="Grupo" id="Grupo">
+                  <option disabled selected value="">Seleccione uno</option>
+                </select>
+
               </div>
 
               <div class="mb-3">
@@ -164,15 +172,6 @@
                   aria-describedby="helpId" required placeholder="" />
                 <div class="invalid-feedback">
                   Es necesario poner el usuario
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label for="" class="form-label">Nacionalidad</label>
-                <input class="form-control form-control-sm" type="text" class="form-control" name="nacionalidad"
-                  id="nacionalidad" aria-describedby="helpId" required placeholder="" />
-                <div class="invalid-feedback">
-                  Es necesario poner la nacionalidad
                 </div>
               </div>
 
@@ -286,6 +285,7 @@
 
   <script>
     //declaracion de variables u objetos
+    var cargarGrupos = document.querySelector('#Grupo');
     var contenidoTablaResultado = document.querySelector("#resultados");
     var formulario = document.getElementById('formulario');
     var eliminarAlerta = document.getElementById('eliminarAlerta')
@@ -310,7 +310,7 @@
       document.getElementById('apellidopaterno').value = apellidopaterno;
       document.getElementById('apellidomaterno').value = apellidomaterno;
       document.getElementById('nacionalidad').value = nacionalidad;
-      document.getElementById('idCarreras').value = idCarreras;
+      document.getElementById('Grupo').value = idCarreras;
       document.getElementById('usuario').value = usuario;
 
       myModal.show();
@@ -329,6 +329,20 @@
       myModal4.show();
     }
 
+    function cargarGrupo() {
+      fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")//url de peticion de datos
+        .then(respuesta => respuesta.json())//recibe los datos en formato json
+        .then((datosrespuesta) => {
+
+          for (const valor of datosrespuesta.data) {
+            cargarGrupos.innerHTML += `
+                       <option value="${valor.id}">${valor.nombre}</option>`;
+          }
+        })
+        .catch(console.log)//muestra errores
+    }
+    cargarGrupo();
+
 
     formulario.addEventListener('submit', function (e) {
 
@@ -345,7 +359,7 @@
       var apellidopaterno = document.getElementById('apellidopaterno').value;
       var apellidomaterno = document.getElementById('apellidomaterno').value;
       var nacionalidad = document.getElementById('nacionalidad').value;
-      var idCarreras = document.getElementById('idCarreras').value;
+      var idCarreras = document.getElementById('Grupo').value;
       var usuario = document.getElementById('usuario').value;
 
 
