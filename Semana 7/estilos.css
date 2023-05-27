@@ -63,14 +63,14 @@ a:hover {color:var(--primary-color);}
 
  .hero{
    position: relative;
-   height: 100vh;
+   height: 70vh;
    background-color: var(--primary-color);
    overflow: hidden;
  }
 
  @media (min-width: 1400px) {
   .hero_heading{
-   font-size: 3.2rem;
+   font-size: 3.2 rem;
   }
 }
 
@@ -145,6 +145,7 @@ a:hover {color:var(--primary-color);}
    height: 240px;
    object-fit: cover;
    margin: 0 auto;
+ 
  }
 
  @media(min-width:544px){
