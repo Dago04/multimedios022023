@@ -1,4 +1,8 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+
 
 
 
@@ -8,6 +12,7 @@ class ListarCurso extends React.Component {
         this.state = {
             datosCargados: false,
             datosCursos: [],
+            modalOpen: false
         }
     }
 
@@ -22,7 +27,23 @@ class ListarCurso extends React.Component {
     }
     eliminar(id){
         console.log(id);
-
+        var datosenviar = {
+            id: id
+          }
+    
+          fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+            {
+              method: "POST",
+              body: JSON.stringify(datosenviar)
+            })
+            .then(respuesta => respuesta.json())
+            .then((datosrepuesta) => {
+                
+                 alert('Curso Eliminado');
+                 window.location ='ListarCursos';
+              console.log('Datos', datosrepuesta)
+            })
+            .catch(console.log)
        
     }
 
@@ -30,15 +51,44 @@ class ListarCurso extends React.Component {
         console.log(objeto);
     }
 
+    openModal(){
+        this.setState({modalOpen:true});
+    }
+
+    closeModal(){
+        this.setState({modalOpen:false});
+    }
+
     componentDidMount() {
         this.cargarDatos();
     }
 
 
+    
+
+
     render() {
-        const { datosCargados, datosCursos } = this.state
+        const { datosCargados, datosCursos, modalOpen } = this.state
         return (
             <div className='container p-5'>
+                <Button variant="primary" onClick={() => this.openModal()} >
+                        Launch demo modal
+                    </Button>
+
+                    <Modal show={modalOpen} >
+                        <Modal.Header >
+                        <Modal.Title>Modal heading</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={() => this.closeModal()}>
+                            Close
+                        </Button>
+                        <Button variant="primary" >
+                            Save Changes
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
                 <h1 className='p-3'>Listar Curso</h1>
                 <div className="table-responsive">
                     <table className="table table-primary">
@@ -84,3 +134,4 @@ class ListarCurso extends React.Component {
 }
  
 export default ListarCurso;
+
