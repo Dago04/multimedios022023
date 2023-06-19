@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 class ListarCurso extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,8 @@ class ListarCurso extends React.Component {
     }
     eliminar(id){
         console.log(id);
+
+       
     }
 
     editar(objeto){
@@ -34,8 +38,8 @@ class ListarCurso extends React.Component {
     render() {
         const { datosCargados, datosCursos } = this.state
         return (
-            <div className='container'>
-                <h1 className='p-3' >Listar Curso</h1>
+            <div className='container p-5'>
+                <h1 className='p-3'>Listar Curso</h1>
                 <div className="table-responsive">
                     <table className="table table-primary">
                         <thead>
