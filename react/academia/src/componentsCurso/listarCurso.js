@@ -12,7 +12,10 @@ class ListarCurso extends React.Component {
         this.state = {
             datosCargados: false,
             datosCursos: [],
-            modalOpen: false
+            modalOpen: false,
+            nombre: "",
+            descripcion: "",
+            tiempo: ""
         }
     }
 
@@ -25,38 +28,44 @@ class ListarCurso extends React.Component {
             })
             .catch(console.log)//muestra errores
     }
-    eliminar(id){
+    eliminar(id) {
         console.log(id);
         var datosenviar = {
             id: id
-          }
-    
-          fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+        }
+
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
             {
-              method: "POST",
-              body: JSON.stringify(datosenviar)
+                method: "POST",
+                body: JSON.stringify(datosenviar)
             })
             .then(respuesta => respuesta.json())
             .then((datosrepuesta) => {
-                
-                 alert('Curso Eliminado');
-                 window.location ='ListarCursos';
-              console.log('Datos', datosrepuesta)
+
+                alert('Curso Eliminado');
+                window.location = 'ListarCursos';
+                console.log('Datos', datosrepuesta)
             })
             .catch(console.log)
-       
+
     }
 
-    editar(objeto){
+    editar(objeto) {
         console.log(objeto);
+        this.openModal();
+    }
+    cambioValor = (e) => {
+        const state = this.state;
+        state[e.target.name] = e.target.value;
+        this.setState({ state });
     }
 
-    openModal(){
-        this.setState({modalOpen:true});
+    openModal() {
+        this.setState({ modalOpen: true });
     }
 
-    closeModal(){
-        this.setState({modalOpen:false});
+    closeModal() {
+        this.setState({ modalOpen: false });
     }
 
     componentDidMount() {
@@ -64,31 +73,47 @@ class ListarCurso extends React.Component {
     }
 
 
-    
+
 
 
     render() {
         const { datosCargados, datosCursos, modalOpen } = this.state
         return (
             <div className='container p-5'>
-                <Button variant="primary" onClick={() => this.openModal()} >
-                        Launch demo modal
-                    </Button>
 
-                    <Modal show={modalOpen} >
-                        <Modal.Header >
-                        <Modal.Title>Modal heading</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-                        <Modal.Footer>
-                        <Button variant="secondary" onClick={() => this.closeModal()}>
-                            Close
-                        </Button>
-                        <Button variant="primary" >
-                            Save Changes
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
+
+                <Modal show={modalOpen} >
+                    <Modal.Header >
+                        <Modal.Title>Modal Cursos</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form id="formulario" >
+                            <div className="mb-3">
+                                <input type='hidden' id="id" name="id"></input>
+                                <label htmlFor="nombre" className="form-label">Nombre</label>
+                                <input type="text" required className="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingrese su nombre" onChange={this.cambioValor} value={nombre} ></input>
+
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="descripcion" className="form-label">Descripcion</label>
+                                <input type="text" required className="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Ingrese su descripcion" onChange={this.cambioValor} value={descripcion}></input>
+
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="tiempo" className="form-label">Tiempo</label>
+                                <input type="text" required className="form-control" name="tiempo" id="tiempo" aria-describedby="helpId" placeholder="Ingrese el tiempo" onChange={this.cambioValor} value={tiempo}></input>
+
+                            </div>
+                            <div className="mb-3">
+                                <button type="reset" className="btn btn-secondary me-2" onClick={() => this.closeModal()}>Close</button>
+                                <button type="reset" className="btn btn-danger me-2">Reset</button>
+                                <button type="submit" className="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                    </Modal.Body>
+
+                </Modal>
                 <h1 className='p-3'>Listar Curso</h1>
                 <div className="table-responsive">
                     <table className="table table-primary">
@@ -114,24 +139,24 @@ class ListarCurso extends React.Component {
                                             <td>{datosExtraidos.tiempo}</td>
                                             <td>{datosExtraidos.usuario}</td>
                                             <td>
-                                                <a name="" id="" className="btn btn-danger mx-2" onClick={()=>this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
+                                                <a name="" id="" className="btn btn-danger mx-2" onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
                                                 ||
-                                                <a name="" id="" className="btn btn-primary mx-2" onClick={()=>this.editar(datosExtraidos)} role="button">Editar</a>
-                                                
+                                                <a name="" id="" className="btn btn-primary mx-2" onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
+
                                             </td>
 
                                         </tr>
+                                    )
                                 )
-                            )
-                         }
+                            }
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
-         );
+        );
     }
 }
- 
+
 export default ListarCurso;
 
