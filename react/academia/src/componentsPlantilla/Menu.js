@@ -27,6 +27,12 @@ class MenuPrincipal extends React.Component {
                                 <li className="nav-item">
                                     <a className="nav-link" href="/CrearCurso">Crear Curso</a>
                                 </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/ListarGrupos">Grupos</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/CrearGrupo">Crear Grupo</a>
+                                </li>
                                 
                             </ul>
                         </div>

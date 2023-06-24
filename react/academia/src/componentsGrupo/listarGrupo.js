@@ -6,26 +6,24 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-class ListarCurso extends React.Component {
+class ListarGrupo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             datosCargados: false,
-            datosCursos: [],
+            datosGrupos: [],
             modalOpen: false,
             nombre: "",
-            descripcion: "",
-            tiempo: "",
-            id: "",
-            usuario: ""
+            id: ""
+          
         }
     }
 
     cargarDatos() {
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php")//url de peticion de datos
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")//url de peticion de datos
             .then(respuesta => respuesta.json())//recibe los datos en formato json
             .then((datosrepuesta) => {
-                this.setState({ datosCargados: true, datosCursos: datosrepuesta.data })
+                this.setState({ datosCargados: true, datosGrupos: datosrepuesta.data })
                 console.log(datosrepuesta.data);
             })
             .catch(console.log)//muestra errores
@@ -36,7 +34,7 @@ class ListarCurso extends React.Component {
             id: id
         }
 
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarGrupo.php",
             {
                 method: "POST",
                 body: JSON.stringify(datosenviar)
@@ -44,8 +42,8 @@ class ListarCurso extends React.Component {
             .then(respuesta => respuesta.json())
             .then((datosrepuesta) => {
 
-                alert('Curso Eliminado');
-                window.location = 'ListarCursos';
+                alert('Grupo Eliminado');
+                window.location = 'ListarGrupos';
                 console.log('Datos', datosrepuesta)
             })
             .catch(console.log)
@@ -54,26 +52,23 @@ class ListarCurso extends React.Component {
 
     editar(objeto) {
         console.log(objeto);
-        this.setState({nombre: objeto.nombre, descripcion :objeto.descripcion, tiempo: objeto.tiempo,id:objeto.id, usuario:objeto.usuario})
+        this.setState({nombre: objeto.nombre,id:objeto.id})
         this.openModal();
     }
  
     enviarDatos = (e) =>{
         e.preventDefault();
 
-        const { nombre, descripcion, tiempo,id, usuario } = this.state;
+        const { nombre,id } = this.state;
 
         var datosenviar = {
             id: id,
-            nombre: nombre,
-            descripcion: descripcion,
-            tiempo: tiempo,
-            usuario: usuario 
+            nombre: nombre
         }
 
         console.log(datosenviar);
 
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php",
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarGrupo.php",
             {
                 method:"POST",
                 body:JSON.stringify(datosenviar)
@@ -81,7 +76,7 @@ class ListarCurso extends React.Component {
             .then(respuesta => respuesta.json())//recibe los datos en formato json
             .then((datosrepuesta) => {            
                 
-                window.location = 'ListarCursos'
+                window.location = 'ListarGrupos'
             })
             .catch(console.log)//muestra errores
     }
@@ -108,14 +103,14 @@ class ListarCurso extends React.Component {
 
 
     render() {
-        const { datosCargados, datosCursos, modalOpen, nombre, descripcion, tiempo,id,  usuario} = this.state
+        const { datosCargados, datosGrupos, modalOpen, nombre,id} = this.state
         return (
             <div className='container p-5'>
 
 
                 <Modal show={modalOpen} >
                     <Modal.Header >
-                        <Modal.Title>Modal Cursos</Modal.Title>
+                        <Modal.Title>Modal Grupos</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form id="formulario" onSubmit={this.enviarDatos} >
@@ -125,21 +120,7 @@ class ListarCurso extends React.Component {
                                 <input type="text" required className="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingrese su nombre" onChange={this.cambioValor} value={nombre} ></input>
 
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                                <input type="text" required className="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Ingrese su descripcion" onChange={this.cambioValor} value={descripcion}></input>
-
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="tiempo" className="form-label">Tiempo</label>
-                                <input type="text" required className="form-control" name="tiempo" id="tiempo" aria-describedby="helpId" placeholder="Ingrese el tiempo" onChange={this.cambioValor} value={tiempo}></input>
-
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="usuario" className="form-label">Usuario</label>
-                                <input type="text" required className="form-control" name="usuario" id="usuario" aria-describedby="helpId" placeholder="Ingrese el usuario" onChange={this.cambioValor} value={usuario}></input>
-
-                            </div>
+                          
                             <div className="mb-3">
                                 <button type="reset" className="btn btn-secondary me-2" onClick={() => this.closeModal()}>Close</button>
                                 <button type="submit" className="btn btn-primary">Actualizar</button>
@@ -152,30 +133,24 @@ class ListarCurso extends React.Component {
 
              
 
-                <h1 className='p-3'>Lista Cursos</h1>
+                <h1 className='p-3'>Lista Grupos</h1>
                 <div className="table-responsive">
                     <table className="table table-primary">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Descripcion</th>
-                                <th scope="col">Tiempo</th>
-                                <th scope="col">Usuario</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                datosCursos.map(
+                                datosGrupos.map(
                                     (datosExtraidos) => (
 
                                         <tr key={datosExtraidos.id} className="table-primary table-striped" >
                                             <td scope="row">{datosExtraidos.id}</td>
                                             <td>{datosExtraidos.nombre}</td>
-                                            <td>{datosExtraidos.descripcion}</td>
-                                            <td>{datosExtraidos.tiempo}</td>
-                                            <td>{datosExtraidos.usuario}</td>
                                             <td>
                                                 <a name="" id="" className="btn btn-danger mx-3 mt-2" onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
                                                 ||
@@ -196,5 +171,4 @@ class ListarCurso extends React.Component {
     }
 }
 
-export default ListarCurso;
-
+export default ListarGrupo;

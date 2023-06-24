@@ -1,11 +1,9 @@
 import React from 'react';
-class CrearCurso extends React.Component {
+class CrearGrupo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             nombre: "",
-            descripcion: "",
-            tiempo: "",
             datosCargados: false,
         }
     }
@@ -15,17 +13,14 @@ class CrearCurso extends React.Component {
     enviarDatos = (e) =>{
         e.preventDefault();
 
-        const { nombre, descripcion, tiempo } = this.state;
+        const { nombre } = this.state;
 
         var datosenviar = {
 
-            nombre: nombre,
-            descripcion: descripcion,
-            tiempo: tiempo,
-            usuario:'Dagoberto' 
+            nombre: nombre 
         }
 
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php",
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarGrupo.php",
             {
                 method:"POST",
                 body:JSON.stringify(datosenviar)
@@ -33,7 +28,7 @@ class CrearCurso extends React.Component {
             .then(respuesta => respuesta.json())//recibe los datos en formato json
             .then((datosrepuesta) => {            
                 console.log('Datos',datosrepuesta)
-                window.location = 'ListarCursos'
+                window.location = 'ListarGrupos'
             })
             .catch(console.log)//muestra errores
     }
@@ -45,7 +40,7 @@ class CrearCurso extends React.Component {
     }
 
     render() {
-        const { nombre, descripcion, tiempo, datosCargados } = this.state;
+        const { nombre, datosCargados } = this.state;
 
         return (
             <div className='text-start container p-5'>
@@ -55,16 +50,7 @@ class CrearCurso extends React.Component {
                         <input type="text" required className="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingrese su nombre" onChange={this.cambioValor} value={nombre}></input>
                         <small id="helpId" className="form-text text-muted">Ingrese su nombre</small>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Descripcion</label>
-                        <input type="text" required className="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Ingrese su descripcion" onChange={this.cambioValor} value={descripcion}></input>
-                        <small id="helpId" className="form-text text-muted">Ingrese su descripcion</small>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="tiempo" className="form-label">Tiempo</label>
-                        <input type="text" required className="form-control" name="tiempo" id="tiempo" aria-describedby="helpId" placeholder="Ingrese el tiempo" onChange={this.cambioValor} value={tiempo}></input>
-                        <small id="helpId" className="form-text text-muted">Ingrese el tiempo</small>
-                    </div>
+                
                     <div className="mb-3">
                         <button className="btn btn-danger me-3" >Reset</button>
                         
@@ -76,4 +62,4 @@ class CrearCurso extends React.Component {
     }
 }
 
-export default CrearCurso;
+export default CrearGrupo;
