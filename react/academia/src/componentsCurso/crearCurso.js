@@ -67,7 +67,7 @@ class CrearCurso extends React.Component {
                         <small id="helpId" className="form-text text-muted">Ingrese el tiempo</small>
                     </div>
                     <div className="mb-3">
-                        <button className="btn btn-danger me-3" >Reset</button>
+                        <button type="reset" className="btn btn-danger me-3" >Reset</button>
                         
                         <button type="submit" className="btn btn-primary">Crear</button>
                     </div>

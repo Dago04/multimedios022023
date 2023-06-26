@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     render() { 
         return ( 
             <div className='container p-5'  >
-              <h5>Proyecto Personal React Dagoberto Salas Cordero</h5>
+              <h5>Proyecto React</h5>
               <img className='background-image img-fluid rounded' src={imagenFondo} alt="logo"/>
             </div>
          );
