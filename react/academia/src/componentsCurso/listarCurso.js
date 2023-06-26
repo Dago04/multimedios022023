@@ -152,7 +152,7 @@ class ListarCurso extends React.Component {
 
              
 
-                <h1 className='p-3'>Lista Cursos</h1>
+                <h3 className='p-3 '>Lista Cursos</h3>
                 <div className="table-responsive">
                     <table className="table table-primary">
                         <thead>
@@ -177,9 +177,9 @@ class ListarCurso extends React.Component {
                                             <td>{datosExtraidos.tiempo}</td>
                                             <td>{datosExtraidos.usuario}</td>
                                             <td>
-                                                <a name="" id="" className="btn btn-danger mx-3 mt-2" onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
+                                                <a name="" id="" className="btn btn-danger mx-2 " onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
                                                 ||
-                                                <a name="" id="" className="btn btn-primary mx-3 mt-2" onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
+                                                <a name="" id="" className="btn btn-primary mx-2" onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
 
                                             </td>
 

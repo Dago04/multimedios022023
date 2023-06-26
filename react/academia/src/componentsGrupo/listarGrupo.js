@@ -133,7 +133,7 @@ class ListarGrupo extends React.Component {
 
              
 
-                <h1 className='p-3'>Lista Grupos</h1>
+                <h2 className='p-3'>Lista Grupos</h2>
                 <div className="table-responsive">
                     <table className="table table-primary">
                         <thead>
@@ -152,9 +152,9 @@ class ListarGrupo extends React.Component {
                                             <td scope="row">{datosExtraidos.id}</td>
                                             <td>{datosExtraidos.nombre}</td>
                                             <td>
-                                                <a name="" id="" className="btn btn-danger mx-3 mt-2" onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
+                                                <a name="" id="" className="btn btn-danger mx-3 " onClick={() => this.eliminar(datosExtraidos.id)} role="button">Eliminar</a>
                                                 ||
-                                                <a name="" id="" className="btn btn-primary mx-3 mt-2" onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
+                                                <a name="" id="" className="btn btn-primary mx-3 " onClick={() => this.editar(datosExtraidos)} role="button">Editar</a>
 
                                             </td>
 

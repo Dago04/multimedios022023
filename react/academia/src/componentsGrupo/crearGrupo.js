@@ -44,6 +44,7 @@ class CrearGrupo extends React.Component {
 
         return (
             <div className='text-start container p-5'>
+                 <h3 className='p-3 text-center'>Registro Grupo</h3>
                 <form id="formulario" onSubmit={this.enviarDatos}>
                     <div className="mb-3">
                         <label htmlFor="nombre" className="form-label">Nombre</label>
