@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
-
+import imagenFondo from '../componentsPlantilla/imagenes/dashboard.jpg'
+import './estilos.css'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -9,9 +10,9 @@ class Dashboard extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <div className='container'>
-                <h1>Dagoberto Salas Proyecto React</h1>
-                <img src={logo} className="App-logo" alt="logo" ></img>
+            <div className='container p-5'  >
+              <h5>Proyecto Personal React Dagoberto Salas Cordero</h5>
+              <img className='background-image img-fluid rounded' src={imagenFondo} alt="logo"/>
             </div>
          );
     }
