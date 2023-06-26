@@ -1,9 +1,13 @@
 .footerReact{
     background-color: #33B2FF;
-    
+    font-weight: 600;
 }
 .menuPrincipal{
     background-color: #33B2FF;
+    
+}
+.divMenu{
+    height: 50px;
     
 }
 

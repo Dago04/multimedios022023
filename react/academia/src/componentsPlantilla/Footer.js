@@ -14,8 +14,8 @@ class FooterPrincipal extends React.Component {
     render() {
         return (
             <div>
-                <footer className=" text-white footerReact" >
-                    <div className="container d-flex justify-content-between align-items-center py-3 border-highlight">
+                <footer className=" text-white footerReact " >
+                    <div className="container-fluid d-flex justify-content-between align-items-center py-3 border-highlight">
                         <div className="col-md-4 d-flex align-items-center">
                             <a href="/" className="me-2 text-muted text-decoration-none">
                                 <i className="bi bi-cup"></i>
